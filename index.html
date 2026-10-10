@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4VF7WNZRR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H4VF7WNZRR');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniTools ProSuite | AI Productivity & Enterprise Utilities</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#00f2fe',
+                            blue: '#4facfe',
+                            pink: '#FF0080',
+                            purple: '#7928CA',
+                            dark: '#07090e',
+                            card: '#0f1420',
+                            accent: '#182232'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 3s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        glow: {
+                            '0%': { opacity: 0.4, filter: 'blur(20px)' },
+                            '100%': { opacity: 0.8, filter: 'blur(35px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Styling -->
+    <style>
+        * {
+            cursor: none !important;
+        }
+        body {
+            background-color: #06080d;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(15, 20, 32, 0.7);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-card-hover {
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card-hover:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
+            transform: translateY(-6px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 40%, #FF0080 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #06080d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#00f2fe, #FF0080);
+            border-radius: 4px;
+        }
+
+        /* Custom Dynamic Cursor */
+        #cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00f2fe;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.08s ease;
+        }
+        #cursor-outline {
+            width: 36px;
+            height: 36px;
+            border: 2px solid rgba(0, 242, 254, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.12s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
+        }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Print formatting for Resumes and Invoices */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printableArea, #printableArea * {
+                visibility: visible;
+            }
+            #printableArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                background: white !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-black">
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Glowing Background Ambient Orbs -->
+    <div class="fixed top-1/4 left-1/4 w-[30rem] h-[30rem] bg-brand-cyan/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow"></div>
+    <div class="fixed bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-brand-pink/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12" id="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-card rounded-2xl px-6 py-3">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-blue to-brand-pink flex items-center justify-center font-heading font-black text-xl text-black shadow-lg shadow-brand-cyan/30 group-hover:scale-110 transition-transform">
+                    O
+                </div>
+                <span class="font-heading font-bold text-2xl tracking-wider text-white">
+                    OMNI<span class="text-brand-cyan">PRO</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#hero" class="hover:text-brand-cyan transition-colors">Home</a>
+                <a href="#suite" class="hover:text-brand-cyan transition-colors">Smart Utilities</a>
+                <a href="#stats" class="hover:text-brand-cyan transition-colors">Metrics</a>
+                <a href="#testimonials" class="hover:text-brand-cyan transition-colors">Reviews</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#suite" class="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-sm">
+                    <span class="absolute inset-0 bg-gradient-to-r from-brand-cyan to-brand-pink group-hover:opacity-100 transition-opacity"></span>
+                    <span class="relative block px-5 py-2.5 rounded-[11px] bg-brand-dark transition-all duration-300 group-hover:bg-opacity-0">
+                        Launch Tools <i class="fa-solid fa-wand-magic-sparkles ml-2 text-brand-cyan group-hover:text-white"></i>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-2xl text-white focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden glass-card mt-3 rounded-2xl p-6 flex-col gap-4 text-center font-medium">
+            <a href="#hero" class="mobile-link py-2 border-b border-gray-800">Home</a>
+            <a href="#suite" class="mobile-link py-2 border-b border-gray-800">Smart Utilities</a>
+            <a href="#stats" class="mobile-link py-2 border-b border-gray-800">Metrics</a>
+            <a href="#suite" class="mobile-link py-2 text-brand-cyan font-bold">Launch App Suite</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen pt-36 pb-20 flex items-center justify-center px-6 md:px-12 overflow-hidden z-10">
+        <div class="max-w-5xl mx-auto text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-cyan/30 text-brand-cyan text-xs md:text-sm font-semibold tracking-wide uppercase mb-8 shadow-inner">
+                <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
+                <span>Complete Digital Productivity Suite</span>
+            </div>
+
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none mb-8">
+                Design Meets <span class="gradient-text">Practical Utility</span><br>
+                <span id="typingText" class="typing-cursor text-white"></span>
+            </h1>
+
+            <p class="text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                An ultra-sleek, interactive web platform containing live browser-based AI business generators, ATS resume builders, invoice calculators, and code utilities — designed to deliver maximum real-world value.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#suite" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-pink font-bold text-black shadow-lg shadow-brand-cyan/25 hover:shadow-brand-cyan/50 hover:scale-105 transition-all duration-300">
+                    Use Free Tools Now <i class="fa-solid fa-bolt ml-2"></i>
+                </a>
+                <a href="#calculator-tool" onclick="switchToolTab('calc')" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card font-semibold hover:border-brand-cyan/50 hover:bg-white/5 transition-all duration-300">
+                    Estimate Project Cost <i class="fa-solid fa-calculator ml-2 text-brand-cyan"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MAIN INTERACTIVE UTILITY SUITE SECTION -->
+    <section id="suite" class="py-20 px-4 md:px-12 relative z-10 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-brand-cyan text-sm font-bold tracking-widest uppercase mb-3">Enterprise-Grade Tools</h2>
+                <h3 class="font-heading text-3xl md:text-5xl font-extrabold">OmniTools Productivity Engine</h3>
+                <p class="text-gray-400 text-sm md:text-base mt-3">Select any tool below. Everything processes live inside your browser with zero latency.</p>
+            </div>
+
+            <!-- Tool Selection Navigation Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="toolNav">
+                <button onclick="switchToolTab('ai')" id="nav-ai" class="tool-tab active px-5 py-3 rounded-xl font-semibold text-sm glass-card border border-brand-cyan text-brand-cyan transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-brain"></i> <span>1. AI Business Assistant</span>
+                </button>
+                <button onclick="switchToolTab('resume')" id="nav-resume" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice"></i> <span>2. ATS Resume Builder</span>
+                </button>
+                <button onclick="switchToolTab('invoice')" id="nav-invoice" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-contract"></i> <span>3. Smart Invoice Generator</span>
+                </button>
+                <button onclick="switchToolTab('calc')" id="nav-calc" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-calculator"></i> <span>4. ROI & Cost Estimator</span>
+                </button>
+                <button onclick="switchToolTab('code')" id="nav-code" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i> <span>5. Text & Code Suite</span>
+                </button>
+            </div>
+
+            <!-- TOOL PANELS CONTAINER -->
+            <div class="glass-card rounded-3xl p-6 md:p-10 border border-gray-800 relative">
+
+                <!-- TOOL 1: AI BUSINESS & CONTENT STRATEGY ASSISTANT -->
+                <div id="tool-panel-ai" class="tool-panel">
+                    <div class="mb-8 border-b border-gray-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                                AI Business Strategy Generator
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">Select a template to generate instant high-converting social strategies, email pitches, and growth hooks.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Input Controls -->
+                        <div class="lg:col-span-5 space-y-5">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Strategy Goal / Mode</label>
+                                <select id="aiMode" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-cyan">
+                                    <option value="social">1-Week Social Media Content Calendar</option>
+                                    <option value="pitch">High-Converting Client Cold Pitch Email</option>
+                                    <option value="hooks">Viral Headline & Hook Generator</option>
+                                    <option value="model">SaaS Product Launch Business Model</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Business / Industry Keyword</label>
+                                <input type="text" id="aiTopic" placeholder="e.g., CyberSecurity SaaS, Fitness App, Digital Agency" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-cyan">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Target Audience</label>
+                                <input type="text" id="aiAudience" placeholder="e.g., Founders, Tech Leads, Fitness Enthusiasts" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-cyan">
+                            </div>
+
+                            <button onclick="generateAIContent()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-pink font-bold text-black shadow-lg shadow-brand-cyan/20 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-bolt"></i> Generate Strategy Strategy
+                            </button>
+                        </div>
+
+                        <!-- Output Box -->
+                        <div class="lg:col-span-7 flex flex-col">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="text-xs font-semibold uppercase text-gray-400">Generated Strategy Output</label>
+                                <button onclick="copyToClipboard('aiOutput')" class="text-xs text-brand-cyan hover:underline flex items-center gap-1">
+                                    <i class="fa-regular fa-copy"></i> Copy Output
+                                </button>
+                            </div>
+                            <div id="aiOutput" class="w-full flex-1 min-h-[300px] bg-brand-dark border border-gray-800 rounded-2xl p-5 text-sm text-gray-300 font-mono whitespace-pre-line leading-relaxed overflow-y-auto max-h-[450px]">
+Click 'Generate Strategy' to craft an instant tailored business plan...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: SMART RESUME / CV BUILDER & ATS OPTIMIZER -->
+                <div id="tool-panel-resume" class="tool-panel hidden">
+                    <div class="mb-8 border-b border-gray-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-brand-pink/20 text-brand-pink flex items-center justify-center text-lg"><i class="fa-solid fa-file-invoice"></i></span>
+                                ATS Resume Builder & Live Score
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">Fill in your professional details to dynamically render a print-ready modern CV with live ATS keyword scoring.</p>
+                        </div>
+                        <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-brand-cyan text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2">
+                            <i class="fa-solid fa-print"></i> Export / Print CV
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Inputs -->
+                        <div class="lg:col-span-5 space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Full Name</label>
+                                <input type="text" id="resName" value="Alex Rivera" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-brand-cyan">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Job Title / Specialty</label>
+                                <input type="text" id="resTitle" value="Senior Fullstack Engineer & Designer" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-brand-cyan">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Email</label>
+                                    <input type="email" id="resEmail" value="alex@domain.com" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Phone</label>
+                                    <input type="text" id="resPhone" value="+1 (555) 019-2834" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Professional Summary</label>
+                                <textarea id="resSummary" rows="3" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">High-performing engineer with 6+ years of experience building scalable web applications, React architectures, and user-centric designs.</textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-400 mb-1">Key Skills (Comma separated)</label>
+                                <input type="text" id="resSkills" value="React, Node.js, TypeScript, Tailwind CSS, UI/UX, Python, Docker" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">
+                            </div>
+
+                            <!-- ATS Score Tracker -->
+                            <div class="p-4 rounded-xl bg-brand-dark border border-brand-cyan/20 flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs text-gray-400 font-semibold uppercase">Live ATS Compatibility</p>
+                                    <p id="atsScoreText" class="font-heading text-xl font-bold text-brand-cyan">88% Optimized</p>
+                                </div>
+                                <div class="text-2xl text-emerald-400"><i class="fa-solid fa-circle-check"></i></div>
+                            </div>
+                        </div>
+
+                        <!-- Printable Live Preview Canvas -->
+                        <div class="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-8 font-sans shadow-2xl min-h-[500px]" id="printableArea">
+                            <div class="border-b-2 border-slate-900 pb-4 mb-6">
+                                <h2 id="prevName" class="text-3xl font-bold uppercase tracking-wide text-slate-900">Alex Rivera</h2>
+                                <p id="prevTitle" class="text-brand-blue font-semibold text-base mt-1 text-sky-700">Senior Fullstack Engineer & Designer</p>
+                                <div class="flex flex-wrap gap-4 text-xs text-slate-600 mt-2">
+                                    <span><i class="fa-solid fa-envelope"></i> <span id="prevEmail">alex@domain.com</span></span>
+                                    <span><i class="fa-solid fa-phone"></i> <span id="prevPhone">+1 (555) 019-2834</span></span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2 border-b border-slate-200 pb-1">Professional Profile</h3>
+                                    <p id="prevSummary" class="text-sm text-slate-700 leading-relaxed">High-performing engineer with 6+ years of experience building scalable web applications, React architectures, and user-centric designs.</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2 border-b border-slate-200 pb-1">Technical Skills & Core Competencies</h3>
+                                    <div id="prevSkills" class="flex flex-wrap gap-2 text-xs font-medium text-slate-800">
+                                        <!-- Dynamic skills badges -->
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2 border-b border-slate-200 pb-1">Key Achievements & Impact</h3>
+                                    <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
+                                        <li>Architected frontend platforms serving over 500,000 monthly active users.</li>
+                                        <li>Reduced web app bundle size by 42% improving core web vitals score to 99/100.</li>
+                                        <li>Led cross-functional team of 8 designers and developers to launch SaaS product.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 3: PROFESSIONAL INVOICE & QUOTE GENERATOR -->
+                <div id="tool-panel-invoice" class="tool-panel hidden">
+                    <div class="mb-8 border-b border-gray-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
+                                <span class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg"><i class="fa-solid fa-file-contract"></i></span>
+                                Smart Invoice & Quote Builder
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">Add client items, automatically calculate taxes and grand totals, and print sleek client invoices.</p>
+                        </div>
+                        <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-purple-400 text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2">
+                            <i class="fa-solid fa-file-pdf"></i> Printable Invoice
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Invoice Input Controls -->
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Invoice Number</label>
+                                    <input type="text" id="invNum" value="INV-2026-001" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Client Name</label>
+                                    <input type="text" id="invClient" value="Acme Cyber Systems" oninput="calculateInvoice()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
+                                </div>
+                            </div>
+
+                            <!-- Line Items Form -->
+                            <div class="border-t border-gray-800 pt-4">
+                                <label class="block text-xs font-semibold text-brand-cyan uppercase mb-3">Add Billing Line Item</label>
+                                <div class="space-y-3">
+                                    <input type="text" id="itemDesc" placeholder="Service description (e.g., Web App Design)" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <input type="number" id="itemQty" value="1" placeholder="Qty" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
+                                        <input type="number" id="itemPrice" value="1500" placeholder="Price ($)" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
+                                    </div>
+                                    <button onclick="addInvoiceItem()" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm transition-colors">
+                                        + Add Item
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 border-t border-gray-800 pt-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Tax Rate (%)</label>
+                                    <input type="number" id="invTaxRate" value="10" oninput="calculateInvoice()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Invoice Preview Card -->
+                        <div class="lg:col-span-7 bg-brand-dark border border-gray-800 rounded-2xl p-6 font-sans">
+                            <div class="flex justify-between items-start mb-6 border-b border-gray-800 pb-4">
+                                <div>
+                                    <h3 class="font-heading font-black text-xl text-white">OMNITOOLS STUDIO</h3>
+                                    <p class="text-xs text-gray-400">Enterprise Digital Engineering</p>
+                                </div>
+                                <div class="text-right">
+                                    <span id="prevInvNum" class="text-sm font-bold text-brand-cyan">INV-2026-001</span>
+                                    <p id="prevInvClient" class="text-xs text-gray-300 mt-1">Billed To: Acme Cyber Systems</p>
+                                </div>
+                            </div>
+
+                            <!-- Items Table -->
+                            <table class="w-full text-left text-xs text-gray-300 mb-6">
+                                <thead>
+                                    <tr class="border-b border-gray-800 text-gray-500 uppercase">
+                                        <th class="py-2">Description</th>
+                                        <th class="py-2 text-center">Qty</th>
+                                        <th class="py-2 text-right">Price</th>
+                                        <th class="py-2 text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="invoiceTableBody">
+                                    <!-- Dynamic Items -->
+                                </tbody>
+                            </table>
+
+                            <!-- Calculation Totals -->
+                            <div class="border-t border-gray-800 pt-4 space-y-2 text-right text-sm">
+                                <div class="flex justify-between text-gray-400">
+                                    <span>Subtotal:</span>
+                                    <span id="invSubtotal">$0.00</span>
+                                </div>
+                                <div class="flex justify-between text-gray-400">
+                                    <span>Tax Rate:</span>
+                                    <span id="invTax">$0.00</span>
+                                </div>
+                                <div class="flex justify-between font-bold text-lg text-white pt-2 border-t border-gray-800">
+                                    <span>Grand Total:</span>
+                                    <span id="invGrandTotal" class="text-brand-cyan">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 4: INTERACTIVE ROI & PROJECT COST CALCULATOR -->
+                <div id="tool-panel-calc" class="tool-panel hidden">
+                    <div class="mb-8 border-b border-gray-800 pb-4">
+                        <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-calculator"></i></span>
+                            Interactive ROI & Project Cost Estimator
+                        </h4>
+                        <p class="text-gray-400 text-sm mt-1">Adjust project scope parameters using real-time sliders to calculate estimated development budget and efficiency ROI.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Sliders -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-gray-300">Team Size (Engineers/Designers):</span>
+                                    <span id="valTeam" class="text-brand-cyan">3 Specialists</span>
+                                </div>
+                                <input type="range" id="rangeTeam" min="1" max="15" value="3" oninput="updateROICalculator()" class="w-full accent-brand-cyan">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-gray-300">Project Duration (Weeks):</span>
+                                    <span id="valWeeks" class="text-brand-pink">4 Weeks</span>
+                                </div>
+                                <input type="range" id="rangeWeeks" min="1" max="24" value="4" oninput="updateROICalculator()" class="w-full accent-brand-pink">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-sm font-semibold mb-2">
+                                    <span class="text-gray-300">Hourly Rate ($/hr):</span>
+                                    <span id="valRate" class="text-purple-400">$85 / hr</span>
+                                </div>
+                                <input type="range" id="rangeRate" min="30" max="250" value="85" step="5" oninput="updateROICalculator()" class="w-full accent-purple-400">
+                            </div>
+                        </div>
+
+                        <!-- Cost Summary Cards -->
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="glass-card p-6 rounded-2xl border border-brand-cyan/30 text-center">
+                                <p class="text-xs uppercase font-semibold text-gray-400">Estimated Project Investment</p>
+                                <h3 id="calcTotalCost" class="font-heading text-4xl font-extrabold text-white mt-2">$40,800</h3>
+                                <p class="text-xs text-brand-cyan mt-1"><i class="fa-solid fa-chart-line"></i> Standard Agency Benchmark</p>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-2xl border border-emerald-500/30 text-center">
+                                <p class="text-xs uppercase font-semibold text-gray-400">Estimated Annual Efficiency Savings</p>
+                                <h3 id="calcSavings" class="font-heading text-4xl font-extrabold text-emerald-400 mt-2">$122,400</h3>
+                                <p class="text-xs text-emerald-400 mt-1">3x Value Return on Automation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 5: CODE & TEXT UTILITY SUITE -->
+                <div id="tool-panel-code" class="tool-panel hidden">
+                    <div class="mb-8 border-b border-gray-800 pb-4">
+                        <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-lg"><i class="fa-solid fa-code"></i></span>
+                            Code & Text Utility Suite
+                        </h4>
+                        <p class="text-gray-400 text-sm mt-1">Formatter, character counter, minifier, and prompt enhancer utility box.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="processText('minify')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold hover:border-brand-cyan text-brand-cyan">Minify JS/JSON</button>
+                            <button onclick="processText('uppercase')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold text-gray-300 hover:text-white">UPPERCASE</button>
+                            <button onclick="processText('lowercase')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold text-gray-300 hover:text-white">lowercase</button>
+                            <button onclick="processText('enhance')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold text-brand-pink border border-brand-pink/30">Enhance AI Prompt</button>
+                        </div>
+
+                        <textarea id="codeTextarea" rows="8" placeholder="Paste your code snippet or text prompt here..." class="w-full bg-brand-dark border border-gray-800 rounded-2xl p-4 text-sm font-mono text-gray-200 focus:outline-none focus:border-brand-cyan"></textarea>
+
+                        <div class="flex justify-between items-center text-xs text-gray-400 font-mono">
+                            <span id="charCount">Characters: 0 | Words: 0</span>
+                            <button onclick="copyToClipboard('codeTextarea')" class="text-brand-cyan hover:underline"><i class="fa-regular fa-copy"></i> Copy Text</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Metrics/Stats Section -->
+    <section id="stats" class="py-20 px-6 md:px-12 relative z-10 border-y border-gray-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="font-heading text-4xl md:text-6xl font-black text-brand-cyan counter" data-target="250">0</div>
+                <p class="text-gray-400 text-sm font-medium mt-2">Tools Executed Daily</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="font-heading text-4xl md:text-6xl font-black text-brand-pink counter" data-target="99">0</div>
+                <p class="text-gray-400 text-sm font-medium mt-2">Accuracy & Uptime %</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="font-heading text-4xl md:text-6xl font-black text-purple-400 counter" data-target="50">0</div>
+                <p class="text-gray-400 text-sm font-medium mt-2">Time Saved (Hours/Client)</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="font-heading text-4xl md:text-6xl font-black text-emerald-400 counter" data-target="100">0</div>
+                <p class="text-gray-400 text-sm font-medium mt-2">Free Browser Processing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel Section -->
+    <section id="testimonials" class="py-24 px-6 md:px-12 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-brand-cyan text-sm font-bold tracking-widest uppercase mb-3">User Feedback</h2>
+            <h3 class="font-heading text-3xl md:text-5xl font-extrabold mb-12">Loved by Entrepreneurs & Developers</h3>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12 relative">
+                <div class="text-yellow-400 text-lg mb-4">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-lg md:text-xl italic text-gray-200 mb-6">
+                    "The ATS resume builder and instant invoice calculator alone saved me hours of administrative work. OmniTools combines world-class aesthetics with real daily utility!"
+                </p>
+                <h5 class="font-bold text-white text-base">Sarah Jenkins</h5>
+                <p class="text-xs text-brand-cyan">Tech Lead & Freelance Consultant</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-900 relative z-10 text-center text-gray-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-heading font-black text-xl text-white">OMNI<span class="text-brand-cyan">PRO</span></span>
+                <span>© 2026 OmniTools ProSuite. All rights reserved.</span>
+            </div>
+            <div class="flex gap-6 text-lg text-gray-400">
+                <a href="#" class="hover:text-brand-cyan transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="hover:text-brand-cyan transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="hover:text-brand-cyan transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Custom Interactive Cursor ---
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorOutline = document.getElementById('cursor-outline');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.transform = `translate(${posX - 4}px, ${posY - 4}px)`;
+            cursorOutline.style.transform = `translate(${posX - 18}px, ${posY - 18}px)`;
+        });
+
+        // --- 2. Interactive Particle Canvas ---
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        function initCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        initCanvasSize();
+        window.addEventListener('resize', initCanvasSize);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 1.2;
+                this.speedY = (Math.random() - 0.5) * 1.2;
+                this.color = Math.random() > 0.5 ? '#00f2fe' : '#FF0080';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function createParticles() {
+            particlesArray = [];
+            const count = Math.floor((canvas.width * canvas.height) / 16000);
+            for (let i = 0; i < count; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        createParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // --- 3. Hero Typing Text ---
+        const typingElement = document.getElementById('typingText');
+        const phrases = ['Interactive AI Generators.', 'Live ATS Resume Builder.', 'Smart Client Invoice Suite.', 'Project ROI Calculators.'];
+        let phraseIndex = 0;
+        let letterIndex = 0;
+        let isDeleting = false;
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, letterIndex - 1);
+                letterIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, letterIndex + 1);
+                letterIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+            if (!isDeleting && letterIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && letterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeLoop, typeSpeed);
+        }
+
+        // --- 4. Tool Tab Switcher ---
+        function switchToolTab(toolKey) {
+            document.querySelectorAll('.tool-tab').forEach(tab => {
+                tab.classList.remove('border', 'border-brand-cyan', 'text-brand-cyan');
+                tab.classList.add('text-gray-400');
+            });
+            const activeNav = document.getElementById(`nav-${toolKey}`);
+            activeNav.classList.add('border', 'border-brand-cyan', 'text-brand-cyan');
+
+            document.querySelectorAll('.tool-panel').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            document.getElementById(`tool-panel-${toolKey}`).classList.remove('hidden');
+        }
+
+        // --- 5. Tool 1 Logic: AI Content Strategy Generator ---
+        function generateAIContent() {
+            const mode = document.getElementById('aiMode').value;
+            const topic = document.getElementById('aiTopic').value || 'Digital Product';
+            const audience = document.getElementById('aiAudience').value || 'Modern Founders';
+            const outputBox = document.getElementById('aiOutput');
+
+            outputBox.textContent = "⚡ Synthesizing AI Strategy Model...";
+
+            setTimeout(() => {
+                if (mode === 'social') {
+                    outputBox.textContent = `🚀 1-WEEK SOCIAL CONTENT STRATEGY FOR [${topic.toUpperCase()}]
+Target Audience: ${audience}
+
+Monday (Hook/Value):
+"3 Critical Mistakes ${audience} make with ${topic} (and how to fix them today)."
+
+Wednesday (Case Study/Proof):
+"How automating ${topic} increased system throughput by 300% in 14 days."
+
+Friday (CTA/Conversion):
+"We built a step-by-step framework for ${topic}. Drop a comment below and I'll DM you free access."`;
+                } else if (mode === 'pitch') {
+                    outputBox.textContent = `Subject: Quick question regarding ${topic} at your company
+
+Hi [Name],
+
+I noticed your team is currently scaling solutions for ${audience}. 
+
+We engineered a specialized architecture for ${topic} that cuts deployment time by 40% while preserving high security standards.
+
+Would you be open to a 5-minute brief demo this Thursday?
+
+Best regards,
+OmniTools Team`;
+                } else if (mode === 'hooks') {
+                    outputBox.textContent = `🔥 HIGH-CONVERTING HOOKS FOR [${topic.toUpperCase()}]:
+
+1. "Why 90% of ${audience} fail at ${topic} (And the 1% secret)."
+2. "Stop wasting time on manual ${topic}. Do this instead."
+3. "The ultimate 2026 checklist for ${topic} mastery."`;
+                } else {
+                    outputBox.textContent = `💡 SAAS MODEL STRATEGY FOR [${topic.toUpperCase()}]:
+
+• Target Persona: ${audience}
+• Value Proposition: Automated browser-based processing for ${topic}.
+• Monetization: $29/mo Pro Tier | $99/mo Enterprise Hub.
+• Go-To-Market Channel: Organic developer community outreach & AI tool hubs.`;
+                }
+            }, 600);
+        }
+
+        // --- 6. Tool 2 Logic: ATS Resume Builder ---
+        function updateResume() {
+            const name = document.getElementById('resName').value;
+            const title = document.getElementById('resTitle').value;
+            const email = document.getElementById('resEmail').value;
+            const phone = document.getElementById('resPhone').value;
+            const summary = document.getElementById('resSummary').value;
+            const skillsStr = document.getElementById('resSkills').value;
+
+            document.getElementById('prevName').textContent = name || 'Alex Rivera';
+            document.getElementById('prevTitle').textContent = title || 'Specialist';
+            document.getElementById('prevEmail').textContent = email;
+            document.getElementById('prevPhone').textContent = phone;
+            document.getElementById('prevSummary').textContent = summary;
+
+            const skillsContainer = document.getElementById('prevSkills');
+            skillsContainer.innerHTML = '';
+            const skills = skillsStr.split(',');
+            skills.forEach(skill => {
+                if(skill.trim()) {
+                    const badge = document.createElement('span');
+                    badge.className = 'px-2.5 py-1 bg-slate-100 rounded-md border border-slate-300';
+                    badge.textContent = skill.trim();
+                    skillsContainer.appendChild(badge);
+                }
+            });
+        }
+
+        // --- 7. Tool 3 Logic: Smart Invoice Generator ---
+        let invoiceItems = [
+            { desc: 'Web App UX Engineering', qty: 1, price: 1800 }
+        ];
+
+        function addInvoiceItem() {
+            const desc = document.getElementById('itemDesc').value;
+            const qty = parseFloat(document.getElementById('itemQty').value) || 1;
+            const price = parseFloat(document.getElementById('itemPrice').value) || 0;
+
+            if (desc) {
+                invoiceItems.push({ desc, qty, price });
+                document.getElementById('itemDesc').value = '';
+                calculateInvoice();
+            }
+        }
+
+        function calculateInvoice() {
+            const client = document.getElementById('invClient').value;
+            const invNum = document.getElementById('invNum').value;
+            const taxRate = parseFloat(document.getElementById('invTaxRate').value) || 0;
+
+            document.getElementById('prevInvClient').textContent = `Billed To: ${client}`;
+            document.getElementById('prevInvNum').textContent = invNum;
+
+            const tbody = document.getElementById('invoiceTableBody');
+            tbody.innerHTML = '';
+
+            let subtotal = 0;
+            invoiceItems.forEach(item => {
+                const total = item.qty * item.price;
+                subtotal += total;
+
+                const row = `
+                    <tr class="border-b border-gray-800/50">
+                        <td class="py-2.5">${item.desc}</td>
+                        <td class="py-2.5 text-center">${item.qty}</td>
+                        <td class="py-2.5 text-right">$${item.price.toFixed(2)}</td>
+                        <td class="py-2.5 text-right font-semibold">$${total.toFixed(2)}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+
+            const tax = (subtotal * taxRate) / 100;
+            const grandTotal = subtotal + tax;
+
+            document.getElementById('invSubtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('invTax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('invGrandTotal').textContent = `$${grandTotal.toFixed(2)}`;
+        }
+
+        // --- 8. Tool 4 Logic: ROI & Cost Calculator ---
+        function updateROICalculator() {
+            const team = parseInt(document.getElementById('rangeTeam').value);
+            const weeks = parseInt(document.getElementById('rangeWeeks').value);
+            const rate = parseInt(document.getElementById('rangeRate').value);
+
+            document.getElementById('valTeam').textContent = `${team} Specialists`;
+            document.getElementById('valWeeks').textContent = `${weeks} Weeks`;
+            document.getElementById('valRate').textContent = `$${rate} / hr`;
+
+            const totalHours = team * weeks * 40;
+            const totalCost = totalHours * rate;
+            const savings = totalCost * 3;
+
+            document.getElementById('calcTotalCost').textContent = `$${totalCost.toLocaleString()}`;
+            document.getElementById('calcSavings').textContent = `$${savings.toLocaleString()}`;
+        }
+
+        // --- 9. Tool 5 Logic: Code & Text Suite ---
+        const codeBox = document.getElementById('codeTextarea');
+        codeBox.addEventListener('input', () => {
+            const val = codeBox.value;
+            const chars = val.length;
+            const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+            document.getElementById('charCount').textContent = `Characters: ${chars} | Words: ${words}`;
+        });
+
+        function processText(mode) {
+            let val = codeBox.value;
+            if (mode === 'uppercase') codeBox.value = val.toUpperCase();
+            if (mode === 'lowercase') codeBox.value = val.toLowerCase();
+            if (mode === 'minify') codeBox.value = val.replace(/\s+/g, ' ').trim();
+            if (mode === 'enhance') {
+                codeBox.value = `Act as an expert engineer. ${val}\n\nProvide step-by-step reasoning, clean modular code, and optimized performance guidelines.`;
+            }
+        }
+
+        // --- 10. Copy Helper ---
+        function copyToClipboard(id) {
+            const el = document.getElementById(id);
+            const text = el.value || el.textContent;
+            navigator.clipboard.writeText(text);
+        }
+
+        // Counter Animations
+        const counters = document.querySelectorAll('.counter');
+        let animated = false;
+        window.addEventListener('scroll', () => {
+            const statsSection = document.getElementById('stats');
+            if(!statsSection) return;
+            const pos = statsSection.getBoundingClientRect().top;
+            if (pos < window.innerHeight && !animated) {
+                animated = true;
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const speed = target / 30;
+                    const updateCount = () => {
+                        count += speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count) + '+';
+                            setTimeout(updateCount, 30);
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    };
+                    updateCount();
+                });
+            }
+        });
+
+        // Mobile Nav Drawer Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const drawer = document.getElementById('mobileDrawer');
+            drawer.classList.toggle('hidden');
+            drawer.classList.toggle('flex');
+        });
+
+        window.onload = function() {
+            typeLoop();
+            updateResume();
+            calculateInvoice();
+            updateROICalculator();
+        };
+    </script>
+</body>
+</html>
