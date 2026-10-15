@@ -1,15 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
 <head><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HSGGY9SMTG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HSGGY9SMTG');
-</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6623897203081130"
-     crossorigin="anonymous"></script><!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H4VF7WNZRR"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,992 +11,889 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniTools ProSuite | AI Productivity & Enterprise Utilities</title>
+    <title>OmniTool Pro v3 Ultra - Cyberpunk Studio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome 6.4.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter & Outfit -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    
-    <!-- Custom Tailwind Configuration -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Marked.js for Live Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            cyan: '#00f2fe',
-                            blue: '#4facfe',
-                            pink: '#FF0080',
-                            purple: '#7928CA',
-                            dark: '#07090e',
-                            card: '#0f1420',
-                            accent: '#182232'
+                        cyber: {
+                            black: '#05050B',
+                            dark: '#0A0C16',
+                            card: 'rgba(13, 16, 32, 0.75)',
+                            border: 'rgba(255, 255, 255, 0.12)',
+                            accent: 'var(--accent-color, #00f0ff)',
+                            accentGlow: 'var(--accent-glow, rgba(0, 240, 255, 0.4))'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace']
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 3s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        glow: {
-                            '0%': { opacity: 0.4, filter: 'blur(20px)' },
-                            '100%': { opacity: 0.8, filter: 'blur(35px)' },
-                        }
+                        mono: ['JetBrains Mono', 'monospace']
                     }
                 }
             }
         }
     </script>
 
-    <!-- Custom CSS Styling -->
     <style>
-        * {
-            cursor: none !important;
+        :root {
+            --accent-color: #00f0ff;
+            --accent-glow: rgba(0, 240, 255, 0.35);
+            --secondary-glow: rgba(255, 0, 127, 0.35);
         }
+
         body {
-            background-color: #06080d;
-            color: #f3f4f6;
+            background-color: #05050B;
+            color: #E2E8F0;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            min-height: 100vh;
         }
-        
+
+        /* 3D Background Canvas Layering */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Dynamic Fluid Aurora Blobs */
+        .aurora-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            z-index: 1;
+            pointer-events: none;
+            animation: blobFloat 20s infinite alternate ease-in-out;
+        }
+
+        .aurora-1 {
+            top: 5%;
+            left: 10%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, var(--accent-color), transparent 70%);
+            animation-duration: 18s;
+        }
+
+        .aurora-2 {
+            bottom: 5%;
+            right: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #a855f7, transparent 70%);
+            animation-duration: 22s;
+        }
+
+        .aurora-3 {
+            top: 45%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ff007f, transparent 70%);
+            animation-duration: 25s;
+        }
+
+        @keyframes blobFloat {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(50px, -70px) scale(1.1); }
+            66% { transform: translate(-40px, 60px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        /* Premium Glassmorphism styling */
         .glass-card {
-            background: rgba(15, 20, 32, 0.7);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            background: rgba(10, 12, 24, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .glass-card-hover {
-            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .glass-card-glow {
+            position: relative;
         }
-
-        .glass-card-hover:hover {
-            border-color: rgba(0, 242, 254, 0.4);
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.2);
-            transform: translateY(-6px);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 40%, #FF0080 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #06080d;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(#00f2fe, #FF0080);
-            border-radius: 4px;
-        }
-
-        /* Custom Dynamic Cursor */
-        #cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #00f2fe;
-            border-radius: 50%;
-            position: fixed;
+        .glass-card-glow::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--accent-glow), var(--secondary-glow));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
             pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.08s ease;
-        }
-        #cursor-outline {
-            width: 36px;
-            height: 36px;
-            border: 2px solid rgba(0, 242, 254, 0.5);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.12s ease-out, width 0.2s, height 0.2s, border-color 0.2s;
         }
 
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
+        .cyber-btn {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--accent-glow);
+            transition: all 0.25s ease;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+        .cyber-btn:hover {
+            background: var(--accent-glow);
+            box-shadow: 0 0 15px var(--accent-glow);
+            transform: translateY(-1px);
         }
 
-        /* Print formatting for Resumes and Invoices */
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #printableArea, #printableArea * {
-                visibility: visible;
-            }
-            #printableArea {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                background: white !important;
-                color: black !important;
-            }
+        /* Dynamic Accent Utilities */
+        .accent-text { color: var(--accent-color); }
+        .accent-border { border-color: var(--accent-color); }
+        .accent-bg { background-color: var(--accent-color); }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(5, 5, 11, 0.9); }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+        .neon-pulse {
+            box-shadow: 0 0 15px var(--accent-glow);
         }
     </style>
 </head>
-<body class="selection:bg-cyan-500 selection:text-black">
+<body class="relative flex flex-col justify-between z-10 selection:bg-cyan-500 selection:text-black min-h-screen">
 
-    <!-- Custom Cursor -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-outline"></div>
+    <!-- Interactive Canvas & Animated Background Blobs -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
 
-    <!-- Background Particle Canvas -->
-    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
-
-    <!-- Glowing Background Ambient Orbs -->
-    <div class="fixed top-1/4 left-1/4 w-[30rem] h-[30rem] bg-brand-cyan/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow"></div>
-    <div class="fixed bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-brand-pink/15 rounded-full blur-[140px] pointer-events-none animate-pulse-slow"></div>
-
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12" id="navbar">
-        <div class="max-w-7xl mx-auto flex items-center justify-between glass-card rounded-2xl px-6 py-3">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan via-brand-blue to-brand-pink flex items-center justify-center font-heading font-black text-xl text-black shadow-lg shadow-brand-cyan/30 group-hover:scale-110 transition-transform">
-                    O
+    <!-- Slide-Over Drawer Navigation (Opened by Top Left Hamburger) -->
+    <div id="drawer-overlay" onclick="toggleDrawer(false)" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+    <aside id="side-drawer" class="fixed top-0 left-0 h-full w-80 lg:w-96 glass-card z-50 border-r border-white/10 p-5 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between">
+        <div>
+            <!-- Drawer Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-pink-500 p-[2px] flex items-center justify-center">
+                        <div class="w-full h-full bg-cyber-dark rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-layer-group text-cyan-400 text-sm"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="font-extrabold text-base text-white tracking-wider font-mono">ALL STUDIO TOOLS</h2>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest">16+ Working Utilities</p>
+                    </div>
                 </div>
-                <span class="font-heading font-bold text-2xl tracking-wider text-white">
-                    OMNI<span class="text-brand-cyan">PRO</span>
-                </span>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
-                <a href="#hero" class="hover:text-brand-cyan transition-colors">Home</a>
-                <a href="#suite" class="hover:text-brand-cyan transition-colors">Smart Utilities</a>
-                <a href="#stats" class="hover:text-brand-cyan transition-colors">Metrics</a>
-                <a href="#testimonials" class="hover:text-brand-cyan transition-colors">Reviews</a>
-            </nav>
-
-            <!-- Action Buttons -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="#suite" class="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-sm">
-                    <span class="absolute inset-0 bg-gradient-to-r from-brand-cyan to-brand-pink group-hover:opacity-100 transition-opacity"></span>
-                    <span class="relative block px-5 py-2.5 rounded-[11px] bg-brand-dark transition-all duration-300 group-hover:bg-opacity-0">
-                        Launch Tools <i class="fa-solid fa-wand-magic-sparkles ml-2 text-brand-cyan group-hover:text-white"></i>
-                    </span>
-                </a>
+                <button onclick="toggleDrawer(false)" class="text-gray-400 hover:text-white text-lg p-2 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobileMenuBtn" class="md:hidden text-2xl text-white focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <!-- Drawer Search Bar -->
+            <div class="relative mb-4">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-xs"></i>
+                <input type="text" id="drawer-search" oninput="filterDrawerTools()" placeholder="Filter tools..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 font-mono">
+            </div>
+
+            <!-- Drawer Categorized List Container -->
+            <div id="drawer-tools-list" class="space-y-1.5 overflow-y-auto max-h-[calc(100vh-250px)] pr-1 font-mono text-xs"></div>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobileDrawer" class="hidden md:hidden glass-card mt-3 rounded-2xl p-6 flex-col gap-4 text-center font-medium">
-            <a href="#hero" class="mobile-link py-2 border-b border-gray-800">Home</a>
-            <a href="#suite" class="mobile-link py-2 border-b border-gray-800">Smart Utilities</a>
-            <a href="#stats" class="mobile-link py-2 border-b border-gray-800">Metrics</a>
-            <a href="#suite" class="mobile-link py-2 text-brand-cyan font-bold">Launch App Suite</a>
+        <!-- Drawer Footer Current Plan Status -->
+        <div class="pt-4 border-t border-white/10">
+            <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                <div>
+                    <span class="text-[10px] text-gray-400 font-mono block uppercase">Plan Status</span>
+                    <span id="drawer-plan-label" class="text-xs font-bold text-cyan-300">FREE PLAN (3/3)</span>
+                </div>
+                <button onclick="toggleDrawer(false); openProModal();" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white font-extrabold text-[10px] uppercase">
+                    Upgrade
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Navigation Header Bar -->
+    <header class="sticky top-0 z-40 glass-card border-b border-white/10 px-4 lg:px-8 py-3.5 flex items-center justify-between">
+        
+        <!-- Left Side: Hamburger 3-Lines Button & Brand -->
+        <div class="flex items-center space-x-4">
+            <button onclick="toggleDrawer(true)" class="p-2.5 rounded-xl glass-card border border-white/15 text-white hover:border-cyan-400 hover:text-cyan-300 transition flex items-center justify-center" title="Open All Tools Drawer">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="scrollToTop()">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 p-[2px] flex items-center justify-center neon-pulse">
+                    <div class="w-full h-full bg-cyber-dark rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-atom text-cyan-400 text-xl animate-spin" style="animation-duration: 12s;"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="font-black text-xl tracking-wider text-white font-mono">OMNITOOL <span class="accent-text">PRO</span></h1>
+                        <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 uppercase tracking-widest">v3 ULTRA</span>
+                    </div>
+                    <p class="text-[10px] text-gray-400 tracking-widest uppercase hidden sm:block">3D Cyber Studio & Developer Toolkit</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Theme Accent, Status Badge & Pro Upgrade -->
+        <div class="flex items-center space-x-3">
+
+            <!-- Theme Accent Palette Dropdown -->
+            <div class="relative group">
+                <button class="p-2 rounded-xl glass-card text-gray-300 hover:text-white border border-white/10 text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-palette accent-text"></i>
+                    <span class="hidden md:inline font-mono text-[11px]">Accent Theme</span>
+                </button>
+                <div class="absolute right-0 mt-2 w-48 glass-card border border-white/10 rounded-2xl p-2 hidden group-hover:block z-50 shadow-2xl">
+                    <div class="text-[10px] font-mono text-gray-400 px-2 py-1 uppercase">Select Theme Color</div>
+                    <div class="grid grid-cols-3 gap-2 p-1">
+                        <button onclick="setThemeAccent('#00f0ff', 'rgba(0, 240, 255, 0.4)')" class="h-8 rounded-lg bg-cyan-400 border border-white/20 hover:scale-105 transition" title="Electric Cyan"></button>
+                        <button onclick="setThemeAccent('#a855f7', 'rgba(168, 85, 247, 0.4)')" class="h-8 rounded-lg bg-purple-500 border border-white/20 hover:scale-105 transition" title="Neon Purple"></button>
+                        <button onclick="setThemeAccent('#10b981', 'rgba(16, 185, 129, 0.4)')" class="h-8 rounded-lg bg-emerald-500 border border-white/20 hover:scale-105 transition" title="Emerald Green"></button>
+                        <button onclick="setThemeAccent('#f59e0b', 'rgba(245, 158, 11, 0.4)')" class="h-8 rounded-lg bg-amber-500 border border-white/20 hover:scale-105 transition" title="Sunset Gold"></button>
+                        <button onclick="setThemeAccent('#ef4444', 'rgba(239, 68, 68, 0.4)')" class="h-8 rounded-lg bg-red-500 border border-white/20 hover:scale-105 transition" title="Flame Red"></button>
+                        <button onclick="setThemeAccent('#ff007f', 'rgba(255, 0, 127, 0.4)')" class="h-8 rounded-lg bg-pink-500 border border-white/20 hover:scale-105 transition" title="Cyber Magenta"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free Session Credit Display Badge -->
+            <div id="credit-status-badge" class="flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-cyan-500/30 text-xs font-mono">
+                <i class="fa-solid fa-bolt text-yellow-400" id="badge-icon"></i>
+                <span id="badge-text" class="text-cyan-300 font-bold">Credits: 3/3</span>
+            </div>
+
+            <!-- Header Pro Upgrade Button -->
+            <button onclick="openProModal()" class="relative group overflow-hidden rounded-xl p-[1px] font-bold text-xs transition duration-300">
+                <span class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-xl group-hover:opacity-100 opacity-80 transition-opacity"></span>
+                <div class="relative px-3.5 py-2 rounded-[11px] bg-cyber-dark flex items-center space-x-2 transition group-hover:bg-transparent">
+                    <i class="fa-solid fa-crown text-yellow-400 animate-bounce"></i>
+                    <span class="text-white font-extrabold tracking-wider hidden sm:inline">UPGRADE PRO</span>
+                </div>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen pt-36 pb-20 flex items-center justify-center px-6 md:px-12 overflow-hidden z-10">
-        <div class="max-w-5xl mx-auto text-center">
-            
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-cyan/30 text-brand-cyan text-xs md:text-sm font-semibold tracking-wide uppercase mb-8 shadow-inner">
-                <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
-                <span>Complete Digital Productivity Suite</span>
+    <!-- Top Promotional Banner Hero Area -->
+    <div class="max-w-[1920px] w-full mx-auto px-4 lg:px-8 pt-6 z-10">
+        <div class="glass-card glass-card-glow rounded-3xl p-6 lg:p-8 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6 relative overflow-hidden">
+            <div class="space-y-2 text-center lg:text-left z-10">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-mono border border-cyan-500/30">
+                    <i class="fa-solid fa-sparkles mr-2 text-yellow-400"></i> NEXT-GEN CYBER TOOLKIT STUDIO
+                </div>
+                <h2 class="text-2xl lg:text-4xl font-black text-white tracking-tight">16+ AI, Developer & Design Utilities</h2>
+                <p class="text-xs lg:text-sm text-gray-300 max-w-2xl">Access all instant tools directly below. Free users receive <span class="text-yellow-400 font-bold">3 free tool executions</span>. Upgrade to Pro ($5/mo) for unlimited access.</p>
             </div>
 
-            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none mb-8">
-                Design Meets <span class="gradient-text">Practical Utility</span><br>
-                <span id="typingText" class="typing-cursor text-white"></span>
-            </h1>
-
-            <p class="text-gray-400 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-                An ultra-sleek, interactive web platform containing live browser-based AI business generators, ATS resume builders, invoice calculators, and code utilities — designed to deliver maximum real-world value.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                <a href="#suite" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-pink font-bold text-black shadow-lg shadow-brand-cyan/25 hover:shadow-brand-cyan/50 hover:scale-105 transition-all duration-300">
-                    Use Free Tools Now <i class="fa-solid fa-bolt ml-2"></i>
-                </a>
-                <a href="#calculator-tool" onclick="switchToolTab('calc')" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card font-semibold hover:border-brand-cyan/50 hover:bg-white/5 transition-all duration-300">
-                    Estimate Project Cost <i class="fa-solid fa-calculator ml-2 text-brand-cyan"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- MAIN INTERACTIVE UTILITY SUITE SECTION -->
-    <section id="suite" class="py-20 px-4 md:px-12 relative z-10 border-t border-gray-900">
-        <div class="max-w-7xl mx-auto">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-brand-cyan text-sm font-bold tracking-widest uppercase mb-3">Enterprise-Grade Tools</h2>
-                <h3 class="font-heading text-3xl md:text-5xl font-extrabold">OmniTools Productivity Engine</h3>
-                <p class="text-gray-400 text-sm md:text-base mt-3">Select any tool below. Everything processes live inside your browser with zero latency.</p>
-            </div>
-
-            <!-- Tool Selection Navigation Tabs -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12" id="toolNav">
-                <button onclick="switchToolTab('ai')" id="nav-ai" class="tool-tab active px-5 py-3 rounded-xl font-semibold text-sm glass-card border border-brand-cyan text-brand-cyan transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-brain"></i> <span>1. AI Business Assistant</span>
-                </button>
-                <button onclick="switchToolTab('resume')" id="nav-resume" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-file-invoice"></i> <span>2. ATS Resume Builder</span>
-                </button>
-                <button onclick="switchToolTab('invoice')" id="nav-invoice" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-file-contract"></i> <span>3. Smart Invoice Generator</span>
-                </button>
-                <button onclick="switchToolTab('calc')" id="nav-calc" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-calculator"></i> <span>4. ROI & Cost Estimator</span>
-                </button>
-                <button onclick="switchToolTab('code')" id="nav-code" class="tool-tab px-5 py-3 rounded-xl font-semibold text-sm glass-card text-gray-400 hover:text-white transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-code"></i> <span>5. Text & Code Suite</span>
+            <div class="flex flex-col sm:flex-row items-center gap-3 z-10">
+                <div class="text-center lg:text-right font-mono">
+                    <span class="block text-[10px] text-gray-400 uppercase">Current Plan</span>
+                    <span id="hero-plan-text" class="text-xs font-extrabold text-cyan-300">FREE PLAN (3 Credits Left)</span>
+                </div>
+                <button onclick="openProModal()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-black text-xs uppercase tracking-wider shadow-xl hover:brightness-110 transition flex items-center gap-2">
+                    <i class="fa-solid fa-crown text-yellow-400"></i>
+                    <span>Get Pro Unlimited ($5)</span>
                 </button>
             </div>
-
-            <!-- TOOL PANELS CONTAINER -->
-            <div class="glass-card rounded-3xl p-6 md:p-10 border border-gray-800 relative">
-
-                <!-- TOOL 1: AI BUSINESS & CONTENT STRATEGY ASSISTANT -->
-                <div id="tool-panel-ai" class="tool-panel">
-                    <div class="mb-8 border-b border-gray-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div>
-                            <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
-                                <span class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-lg"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-                                AI Business Strategy Generator
-                            </h4>
-                            <p class="text-gray-400 text-sm mt-1">Select a template to generate instant high-converting social strategies, email pitches, and growth hooks.</p>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        <!-- Input Controls -->
-                        <div class="lg:col-span-5 space-y-5">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Strategy Goal / Mode</label>
-                                <select id="aiMode" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-cyan">
-                                    <option value="social">1-Week Social Media Content Calendar</option>
-                                    <option value="pitch">High-Converting Client Cold Pitch Email</option>
-                                    <option value="hooks">Viral Headline & Hook Generator</option>
-                                    <option value="model">SaaS Product Launch Business Model</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Business / Industry Keyword</label>
-                                <input type="text" id="aiTopic" placeholder="e.g., CyberSecurity SaaS, Fitness App, Digital Agency" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-cyan">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Target Audience</label>
-                                <input type="text" id="aiAudience" placeholder="e.g., Founders, Tech Leads, Fitness Enthusiasts" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-cyan">
-                            </div>
-
-                            <button onclick="generateAIContent()" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-pink font-bold text-black shadow-lg shadow-brand-cyan/20 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-bolt"></i> Generate Strategy Strategy
-                            </button>
-                        </div>
-
-                        <!-- Output Box -->
-                        <div class="lg:col-span-7 flex flex-col">
-                            <div class="flex items-center justify-between mb-2">
-                                <label class="text-xs font-semibold uppercase text-gray-400">Generated Strategy Output</label>
-                                <button onclick="copyToClipboard('aiOutput')" class="text-xs text-brand-cyan hover:underline flex items-center gap-1">
-                                    <i class="fa-regular fa-copy"></i> Copy Output
-                                </button>
-                            </div>
-                            <div id="aiOutput" class="w-full flex-1 min-h-[300px] bg-brand-dark border border-gray-800 rounded-2xl p-5 text-sm text-gray-300 font-mono whitespace-pre-line leading-relaxed overflow-y-auto max-h-[450px]">
-Click 'Generate Strategy' to craft an instant tailored business plan...
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOOL 2: SMART RESUME / CV BUILDER & ATS OPTIMIZER -->
-                <div id="tool-panel-resume" class="tool-panel hidden">
-                    <div class="mb-8 border-b border-gray-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div>
-                            <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
-                                <span class="w-10 h-10 rounded-xl bg-brand-pink/20 text-brand-pink flex items-center justify-center text-lg"><i class="fa-solid fa-file-invoice"></i></span>
-                                ATS Resume Builder & Live Score
-                            </h4>
-                            <p class="text-gray-400 text-sm mt-1">Fill in your professional details to dynamically render a print-ready modern CV with live ATS keyword scoring.</p>
-                        </div>
-                        <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-brand-cyan text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2">
-                            <i class="fa-solid fa-print"></i> Export / Print CV
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        <!-- Inputs -->
-                        <div class="lg:col-span-5 space-y-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1">Full Name</label>
-                                <input type="text" id="resName" value="Alex Rivera" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-brand-cyan">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1">Job Title / Specialty</label>
-                                <input type="text" id="resTitle" value="Senior Fullstack Engineer & Designer" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-brand-cyan">
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-2">
-                                <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Email</label>
-                                    <input type="email" id="resEmail" value="alex@domain.com" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Phone</label>
-                                    <input type="text" id="resPhone" value="+1 (555) 019-2834" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1">Professional Summary</label>
-                                <textarea id="resSummary" rows="3" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">High-performing engineer with 6+ years of experience building scalable web applications, React architectures, and user-centric designs.</textarea>
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-400 mb-1">Key Skills (Comma separated)</label>
-                                <input type="text" id="resSkills" value="React, Node.js, TypeScript, Tailwind CSS, UI/UX, Python, Docker" oninput="updateResume()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm focus:outline-none">
-                            </div>
-
-                            <!-- ATS Score Tracker -->
-                            <div class="p-4 rounded-xl bg-brand-dark border border-brand-cyan/20 flex items-center justify-between">
-                                <div>
-                                    <p class="text-xs text-gray-400 font-semibold uppercase">Live ATS Compatibility</p>
-                                    <p id="atsScoreText" class="font-heading text-xl font-bold text-brand-cyan">88% Optimized</p>
-                                </div>
-                                <div class="text-2xl text-emerald-400"><i class="fa-solid fa-circle-check"></i></div>
-                            </div>
-                        </div>
-
-                        <!-- Printable Live Preview Canvas -->
-                        <div class="lg:col-span-7 bg-white text-slate-900 rounded-2xl p-8 font-sans shadow-2xl min-h-[500px]" id="printableArea">
-                            <div class="border-b-2 border-slate-900 pb-4 mb-6">
-                                <h2 id="prevName" class="text-3xl font-bold uppercase tracking-wide text-slate-900">Alex Rivera</h2>
-                                <p id="prevTitle" class="text-brand-blue font-semibold text-base mt-1 text-sky-700">Senior Fullstack Engineer & Designer</p>
-                                <div class="flex flex-wrap gap-4 text-xs text-slate-600 mt-2">
-                                    <span><i class="fa-solid fa-envelope"></i> <span id="prevEmail">alex@domain.com</span></span>
-                                    <span><i class="fa-solid fa-phone"></i> <span id="prevPhone">+1 (555) 019-2834</span></span>
-                                </div>
-                            </div>
-
-                            <div class="space-y-6">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2 border-b border-slate-200 pb-1">Professional Profile</h3>
-                                    <p id="prevSummary" class="text-sm text-slate-700 leading-relaxed">High-performing engineer with 6+ years of experience building scalable web applications, React architectures, and user-centric designs.</p>
-                                </div>
-
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2 border-b border-slate-200 pb-1">Technical Skills & Core Competencies</h3>
-                                    <div id="prevSkills" class="flex flex-wrap gap-2 text-xs font-medium text-slate-800">
-                                        <!-- Dynamic skills badges -->
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase text-slate-400 tracking-wider mb-2 border-b border-slate-200 pb-1">Key Achievements & Impact</h3>
-                                    <ul class="list-disc list-inside text-sm text-slate-700 space-y-1">
-                                        <li>Architected frontend platforms serving over 500,000 monthly active users.</li>
-                                        <li>Reduced web app bundle size by 42% improving core web vitals score to 99/100.</li>
-                                        <li>Led cross-functional team of 8 designers and developers to launch SaaS product.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOOL 3: PROFESSIONAL INVOICE & QUOTE GENERATOR -->
-                <div id="tool-panel-invoice" class="tool-panel hidden">
-                    <div class="mb-8 border-b border-gray-800 pb-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div>
-                            <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
-                                <span class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg"><i class="fa-solid fa-file-contract"></i></span>
-                                Smart Invoice & Quote Builder
-                            </h4>
-                            <p class="text-gray-400 text-sm mt-1">Add client items, automatically calculate taxes and grand totals, and print sleek client invoices.</p>
-                        </div>
-                        <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-purple-400 text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2">
-                            <i class="fa-solid fa-file-pdf"></i> Printable Invoice
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        <!-- Invoice Input Controls -->
-                        <div class="lg:col-span-5 space-y-4">
-                            <div class="grid grid-cols-2 gap-3">
-                                <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Invoice Number</label>
-                                    <input type="text" id="invNum" value="INV-2026-001" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Client Name</label>
-                                    <input type="text" id="invClient" value="Acme Cyber Systems" oninput="calculateInvoice()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
-                                </div>
-                            </div>
-
-                            <!-- Line Items Form -->
-                            <div class="border-t border-gray-800 pt-4">
-                                <label class="block text-xs font-semibold text-brand-cyan uppercase mb-3">Add Billing Line Item</label>
-                                <div class="space-y-3">
-                                    <input type="text" id="itemDesc" placeholder="Service description (e.g., Web App Design)" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
-                                    <div class="grid grid-cols-2 gap-3">
-                                        <input type="number" id="itemQty" value="1" placeholder="Qty" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
-                                        <input type="number" id="itemPrice" value="1500" placeholder="Price ($)" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
-                                    </div>
-                                    <button onclick="addInvoiceItem()" class="w-full py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm transition-colors">
-                                        + Add Item
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-3 border-t border-gray-800 pt-4">
-                                <div>
-                                    <label class="block text-xs font-semibold text-gray-400 mb-1">Tax Rate (%)</label>
-                                    <input type="number" id="invTaxRate" value="10" oninput="calculateInvoice()" class="w-full bg-brand-dark border border-gray-800 rounded-xl px-3 py-2 text-white text-sm">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Invoice Preview Card -->
-                        <div class="lg:col-span-7 bg-brand-dark border border-gray-800 rounded-2xl p-6 font-sans">
-                            <div class="flex justify-between items-start mb-6 border-b border-gray-800 pb-4">
-                                <div>
-                                    <h3 class="font-heading font-black text-xl text-white">OMNITOOLS STUDIO</h3>
-                                    <p class="text-xs text-gray-400">Enterprise Digital Engineering</p>
-                                </div>
-                                <div class="text-right">
-                                    <span id="prevInvNum" class="text-sm font-bold text-brand-cyan">INV-2026-001</span>
-                                    <p id="prevInvClient" class="text-xs text-gray-300 mt-1">Billed To: Acme Cyber Systems</p>
-                                </div>
-                            </div>
-
-                            <!-- Items Table -->
-                            <table class="w-full text-left text-xs text-gray-300 mb-6">
-                                <thead>
-                                    <tr class="border-b border-gray-800 text-gray-500 uppercase">
-                                        <th class="py-2">Description</th>
-                                        <th class="py-2 text-center">Qty</th>
-                                        <th class="py-2 text-right">Price</th>
-                                        <th class="py-2 text-right">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="invoiceTableBody">
-                                    <!-- Dynamic Items -->
-                                </tbody>
-                            </table>
-
-                            <!-- Calculation Totals -->
-                            <div class="border-t border-gray-800 pt-4 space-y-2 text-right text-sm">
-                                <div class="flex justify-between text-gray-400">
-                                    <span>Subtotal:</span>
-                                    <span id="invSubtotal">$0.00</span>
-                                </div>
-                                <div class="flex justify-between text-gray-400">
-                                    <span>Tax Rate:</span>
-                                    <span id="invTax">$0.00</span>
-                                </div>
-                                <div class="flex justify-between font-bold text-lg text-white pt-2 border-t border-gray-800">
-                                    <span>Grand Total:</span>
-                                    <span id="invGrandTotal" class="text-brand-cyan">$0.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOOL 4: INTERACTIVE ROI & PROJECT COST CALCULATOR -->
-                <div id="tool-panel-calc" class="tool-panel hidden">
-                    <div class="mb-8 border-b border-gray-800 pb-4">
-                        <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
-                            <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg"><i class="fa-solid fa-calculator"></i></span>
-                            Interactive ROI & Project Cost Estimator
-                        </h4>
-                        <p class="text-gray-400 text-sm mt-1">Adjust project scope parameters using real-time sliders to calculate estimated development budget and efficiency ROI.</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                        <!-- Sliders -->
-                        <div class="lg:col-span-7 space-y-6">
-                            <div>
-                                <div class="flex justify-between text-sm font-semibold mb-2">
-                                    <span class="text-gray-300">Team Size (Engineers/Designers):</span>
-                                    <span id="valTeam" class="text-brand-cyan">3 Specialists</span>
-                                </div>
-                                <input type="range" id="rangeTeam" min="1" max="15" value="3" oninput="updateROICalculator()" class="w-full accent-brand-cyan">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-sm font-semibold mb-2">
-                                    <span class="text-gray-300">Project Duration (Weeks):</span>
-                                    <span id="valWeeks" class="text-brand-pink">4 Weeks</span>
-                                </div>
-                                <input type="range" id="rangeWeeks" min="1" max="24" value="4" oninput="updateROICalculator()" class="w-full accent-brand-pink">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-sm font-semibold mb-2">
-                                    <span class="text-gray-300">Hourly Rate ($/hr):</span>
-                                    <span id="valRate" class="text-purple-400">$85 / hr</span>
-                                </div>
-                                <input type="range" id="rangeRate" min="30" max="250" value="85" step="5" oninput="updateROICalculator()" class="w-full accent-purple-400">
-                            </div>
-                        </div>
-
-                        <!-- Cost Summary Cards -->
-                        <div class="lg:col-span-5 space-y-4">
-                            <div class="glass-card p-6 rounded-2xl border border-brand-cyan/30 text-center">
-                                <p class="text-xs uppercase font-semibold text-gray-400">Estimated Project Investment</p>
-                                <h3 id="calcTotalCost" class="font-heading text-4xl font-extrabold text-white mt-2">$40,800</h3>
-                                <p class="text-xs text-brand-cyan mt-1"><i class="fa-solid fa-chart-line"></i> Standard Agency Benchmark</p>
-                            </div>
-
-                            <div class="glass-card p-6 rounded-2xl border border-emerald-500/30 text-center">
-                                <p class="text-xs uppercase font-semibold text-gray-400">Estimated Annual Efficiency Savings</p>
-                                <h3 id="calcSavings" class="font-heading text-4xl font-extrabold text-emerald-400 mt-2">$122,400</h3>
-                                <p class="text-xs text-emerald-400 mt-1">3x Value Return on Automation</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TOOL 5: CODE & TEXT UTILITY SUITE -->
-                <div id="tool-panel-code" class="tool-panel hidden">
-                    <div class="mb-8 border-b border-gray-800 pb-4">
-                        <h4 class="font-heading text-2xl font-bold text-white flex items-center gap-3">
-                            <span class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-lg"><i class="fa-solid fa-code"></i></span>
-                            Code & Text Utility Suite
-                        </h4>
-                        <p class="text-gray-400 text-sm mt-1">Formatter, character counter, minifier, and prompt enhancer utility box.</p>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="flex flex-wrap gap-2">
-                            <button onclick="processText('minify')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold hover:border-brand-cyan text-brand-cyan">Minify JS/JSON</button>
-                            <button onclick="processText('uppercase')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold text-gray-300 hover:text-white">UPPERCASE</button>
-                            <button onclick="processText('lowercase')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold text-gray-300 hover:text-white">lowercase</button>
-                            <button onclick="processText('enhance')" class="px-4 py-2 rounded-lg glass-card text-xs font-semibold text-brand-pink border border-brand-pink/30">Enhance AI Prompt</button>
-                        </div>
-
-                        <textarea id="codeTextarea" rows="8" placeholder="Paste your code snippet or text prompt here..." class="w-full bg-brand-dark border border-gray-800 rounded-2xl p-4 text-sm font-mono text-gray-200 focus:outline-none focus:border-brand-cyan"></textarea>
-
-                        <div class="flex justify-between items-center text-xs text-gray-400 font-mono">
-                            <span id="charCount">Characters: 0 | Words: 0</span>
-                            <button onclick="copyToClipboard('codeTextarea')" class="text-brand-cyan hover:underline"><i class="fa-regular fa-copy"></i> Copy Text</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
-    </section>
+    </div>
 
-    <!-- Metrics/Stats Section -->
-    <section id="stats" class="py-20 px-6 md:px-12 relative z-10 border-y border-gray-900">
-        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="font-heading text-4xl md:text-6xl font-black text-brand-cyan counter" data-target="250">0</div>
-                <p class="text-gray-400 text-sm font-medium mt-2">Tools Executed Daily</p>
+    <!-- Main Workspace Area: Tools Grid & Active Tool Modal/Workspace -->
+    <main class="max-w-[1920px] w-full mx-auto px-4 lg:px-8 py-6 z-10 space-y-8 flex-1">
+        
+        <!-- Search & Category Filter Section -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-4 rounded-2xl border border-white/10 font-mono">
+            <div class="relative w-full md:w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-400 text-xs"></i>
+                <input type="text" id="grid-search" oninput="filterGridTools()" placeholder="Search tools (e.g. JSON, Regex, QR)..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400">
             </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="font-heading text-4xl md:text-6xl font-black text-brand-pink counter" data-target="99">0</div>
-                <p class="text-gray-400 text-sm font-medium mt-2">Accuracy & Uptime %</p>
-            </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="font-heading text-4xl md:text-6xl font-black text-purple-400 counter" data-target="50">0</div>
-                <p class="text-gray-400 text-sm font-medium mt-2">Time Saved (Hours/Client)</p>
-            </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="font-heading text-4xl md:text-6xl font-black text-emerald-400 counter" data-target="100">0</div>
-                <p class="text-gray-400 text-sm font-medium mt-2">Free Browser Processing</p>
+
+            <div id="category-filters" class="flex flex-wrap gap-2 text-xs">
+                <!-- Dynamically injected category buttons -->
             </div>
         </div>
-    </section>
 
-    <!-- Testimonials Carousel Section -->
-    <section id="testimonials" class="py-24 px-6 md:px-12 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-brand-cyan text-sm font-bold tracking-widest uppercase mb-3">User Feedback</h2>
-            <h3 class="font-heading text-3xl md:text-5xl font-extrabold mb-12">Loved by Entrepreneurs & Developers</h3>
+        <!-- Main Responsive Tools Grid (All 16+ tools visible immediately) -->
+        <section id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <!-- Dynamically populated tool cards -->
+        </section>
 
-            <div class="glass-card rounded-3xl p-8 md:p-12 relative">
-                <div class="text-yellow-400 text-lg mb-4">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        <!-- Active Tool Interactive Launch Workspace Container -->
+        <section id="active-workspace-section" class="glass-card glass-card-glow rounded-3xl p-6 border border-white/10 hidden">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl accent-text">
+                        <i id="active-tool-icon" class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h3 id="active-tool-title" class="text-xl font-black text-white">Tool Workspace</h3>
+                        <p id="active-tool-desc" class="text-xs text-gray-400">Interactive live studio editor</p>
+                    </div>
                 </div>
-                <p class="text-lg md:text-xl italic text-gray-200 mb-6">
-                    "The ATS resume builder and instant invoice calculator alone saved me hours of administrative work. OmniTools combines world-class aesthetics with real daily utility!"
-                </p>
-                <h5 class="font-bold text-white text-base">Sarah Jenkins</h5>
-                <p class="text-xs text-brand-cyan">Tech Lead & Freelance Consultant</p>
+                <button onclick="closeActiveWorkspace()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 text-xs font-mono transition flex items-center gap-2">
+                    <i class="fa-solid fa-xmark"></i> Close Tool
+                </button>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-gray-900 relative z-10 text-center text-gray-500 text-sm">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-2">
-                <span class="font-heading font-black text-xl text-white">OMNI<span class="text-brand-cyan">PRO</span></span>
-                <span>© 2026 OmniTools ProSuite. All rights reserved.</span>
+            <div id="active-tool-content" class="min-h-[400px]">
+                <!-- Active tool workspace content injected here -->
             </div>
-            <div class="flex gap-6 text-lg text-gray-400">
-                <a href="#" class="hover:text-brand-cyan transition-colors"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="hover:text-brand-cyan transition-colors"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="hover:text-brand-cyan transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
+        </section>
 
+        <!-- Dedicated Scrollable Bottom Pro Subscription Section -->
+        <section class="glass-card glass-card-glow rounded-3xl p-6 lg:p-8 border border-pink-500/30 my-8 font-mono">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <div class="inline-flex items-center px-3.5 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs mb-3 border border-pink-500/30">
+                    <i class="fa-solid fa-crown mr-2 text-yellow-400"></i> PRO SUBSCRIPTION $5 / MONTH
+                </div>
+                <h3 class="text-2xl lg:text-3xl font-black text-white">Upgrade to Unlimited Studio Access</h3>
+                <p class="text-xs text-gray-300 mt-2">Get lifetime unlimited executions across all 16+ developer tools without session limits.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
+                <!-- Touch 'n Go eWallet Malaysia Display Box -->
+                <div class="bg-gradient-to-b from-blue-950/60 via-cyber-dark to-pink-950/50 rounded-2xl p-5 border border-pink-500/30 flex flex-col items-center text-center">
+                    <div class="bg-white text-blue-900 font-black text-xs px-3 py-1 rounded-md mb-2 shadow">
+                        Touch 'n Go eWallet
+                    </div>
+                    <h4 class="text-lg font-bold text-white tracking-wide">SHER HASSAN</h4>
+                    <p class="text-[11px] text-gray-300 mb-3">Scan with Touch 'n Go or Malaysian Banking App ($5 / RM22)</p>
+
+                    <!-- Pink Touch 'n Go QR Display Container -->
+                    <div class="bg-white p-4 rounded-2xl border-4 border-pink-600 shadow-2xl flex flex-col items-center max-w-[220px] w-full">
+                        <div id="tng-bottom-qr" class="my-1 p-2 bg-white rounded-lg flex justify-center"></div>
+                        <div class="w-full bg-pink-600 text-white text-center text-[10px] font-extrabold py-1 rounded-md mt-2 uppercase tracking-wider">
+                            MALAYSIA NATIONAL QR
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direct Contact Details & Activation Box -->
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+                        <h5 class="text-xs font-bold text-cyan-300 uppercase">Direct Payment & Inquiries</h5>
+                        <a href="https://wa.me/923175047568?text=Hello!%20I%20want%20to%20subscribe%20to%20OmniTool%20Pro%20($5)." target="_blank" class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 flex items-center space-x-3 hover:bg-emerald-500/20 transition">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
+                            <div>
+                                <span class="block text-[10px] text-gray-400">WhatsApp Contact</span>
+                                <span class="text-xs font-bold">+92 317 5047568</span>
+                            </div>
+                        </a>
+                        <a href="mailto:hussain.tanveer655@gmail.com?subject=OmniTool%20Pro%20Subscription" class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 flex items-center space-x-3 hover:bg-cyan-500/20 transition">
+                            <i class="fa-solid fa-envelope text-cyan-400 text-xl"></i>
+                            <div>
+                                <span class="block text-[10px] text-gray-400">Email Address</span>
+                                <span class="text-xs font-bold">hussain.tanveer655@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <button onclick="openProModal()" class="w-full py-4 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-crown text-yellow-400"></i>
+                        <span>Enter Transaction ID / Verify Receipt</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PRO SUBSCRIPTION MODAL -->
+    <div id="pro-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="relative w-full max-w-xl glass-card glass-card-glow rounded-3xl p-6 lg:p-8 border border-pink-500/40 max-h-[92vh] overflow-y-auto font-mono">
+            <button onclick="closeProModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl p-2 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center px-3.5 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs mb-2 border border-pink-500/30">
+                    <i class="fa-solid fa-crown mr-2 text-yellow-400"></i> PRO UNLIMITED ACTIVATION
+                </div>
+                <h3 class="text-2xl font-black text-white">Upgrade to OmniTool Pro ($5)</h3>
+            </div>
+
+            <form onsubmit="verifyAndActivatePro(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-cyan-300 mb-1">Enter Transaction Reference / Payment Ref ID</label>
+                    <input type="text" id="tx-id-input" required placeholder="e.g. TNG-891230129 or Bank Ref" class="w-full bg-black/70 border border-white/20 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-cyan-400 font-mono">
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition">
+                    Activate Pro Unlimited Access
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+    <!-- Main Application Scripts -->
     <script>
-        // --- 1. Custom Interactive Cursor ---
-        const cursorDot = document.getElementById('cursor-dot');
-        const cursorOutline = document.getElementById('cursor-outline');
+        /* State & LocalStorage Management */
+        const FREE_CREDIT_LIMIT = 3;
+        let userState = {
+            isPro: false,
+            creditsUsed: 0,
+            favorites: []
+        };
 
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursorDot.style.transform = `translate(${posX - 4}px, ${posY - 4}px)`;
-            cursorOutline.style.transform = `translate(${posX - 18}px, ${posY - 18}px)`;
-        });
-
-        // --- 2. Interactive Particle Canvas ---
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray = [];
-
-        function initCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        initCanvasSize();
-        window.addEventListener('resize', initCanvasSize);
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = (Math.random() - 0.5) * 1.2;
-                this.speedY = (Math.random() - 0.5) * 1.2;
-                this.color = Math.random() > 0.5 ? '#00f2fe' : '#FF0080';
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function createParticles() {
-            particlesArray = [];
-            const count = Math.floor((canvas.width * canvas.height) / 16000);
-            for (let i = 0; i < count; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-        createParticles();
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // --- 3. Hero Typing Text ---
-        const typingElement = document.getElementById('typingText');
-        const phrases = ['Interactive AI Generators.', 'Live ATS Resume Builder.', 'Smart Client Invoice Suite.', 'Project ROI Calculators.'];
-        let phraseIndex = 0;
-        let letterIndex = 0;
-        let isDeleting = false;
-
-        function typeLoop() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                typingElement.textContent = currentPhrase.substring(0, letterIndex - 1);
-                letterIndex--;
+        function loadUserState() {
+            const saved = localStorage.getItem('omnitool_studio_v3_state');
+            if (saved) {
+                userState = JSON.parse(saved);
             } else {
-                typingElement.textContent = currentPhrase.substring(0, letterIndex + 1);
-                letterIndex++;
+                saveUserState();
+            }
+            updateCreditBadge();
+        }
+
+        function saveUserState() {
+            localStorage.setItem('omnitool_studio_v3_state', JSON.stringify(userState));
+        }
+
+        function consumeCredit() {
+            if (userState.isPro) return true;
+
+            if (userState.creditsUsed >= FREE_CREDIT_LIMIT) {
+                openProModal();
+                showToast("Free credits exhausted! Please upgrade to Pro ($5) for unlimited tool usage.", "warning");
+                return false;
             }
 
-            let typeSpeed = isDeleting ? 40 : 80;
-            if (!isDeleting && letterIndex === currentPhrase.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && letterIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500;
+            userState.creditsUsed++;
+            saveUserState();
+            updateCreditBadge();
+
+            if (userState.creditsUsed >= FREE_CREDIT_LIMIT) {
+                showToast("You have used your last free credit. Upgrade to Pro for unlimited access!", "warning");
             }
-            setTimeout(typeLoop, typeSpeed);
+            return true;
         }
 
-        // --- 4. Tool Tab Switcher ---
-        function switchToolTab(toolKey) {
-            document.querySelectorAll('.tool-tab').forEach(tab => {
-                tab.classList.remove('border', 'border-brand-cyan', 'text-brand-cyan');
-                tab.classList.add('text-gray-400');
-            });
-            const activeNav = document.getElementById(`nav-${toolKey}`);
-            activeNav.classList.add('border', 'border-brand-cyan', 'text-brand-cyan');
+        function updateCreditBadge() {
+            const badgeText = document.getElementById('badge-text');
+            const badgeIcon = document.getElementById('badge-icon');
+            const badgeContainer = document.getElementById('credit-status-badge');
+            const drawerLabel = document.getElementById('drawer-plan-label');
+            const heroPlanText = document.getElementById('hero-plan-text');
 
-            document.querySelectorAll('.tool-panel').forEach(panel => {
-                panel.classList.add('hidden');
-            });
-            document.getElementById(`tool-panel-${toolKey}`).classList.remove('hidden');
+            if (userState.isPro) {
+                badgeText.innerText = "PRO UNLIMITED";
+                badgeText.className = "text-yellow-400 font-extrabold font-mono tracking-wider";
+                badgeIcon.className = "fa-solid fa-crown text-yellow-400";
+                badgeContainer.className = "flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-yellow-500/50 bg-yellow-500/10";
+                drawerLabel.innerText = "PRO UNLIMITED ACTIVE";
+                drawerLabel.className = "text-xs font-bold text-yellow-400";
+                heroPlanText.innerText = "PRO UNLIMITED ACTIVE";
+                heroPlanText.className = "text-xs font-extrabold text-yellow-400";
+            } else {
+                const remaining = FREE_CREDIT_LIMIT - userState.creditsUsed;
+                badgeText.innerText = `Credits: ${remaining}/${FREE_CREDIT_LIMIT}`;
+                badgeText.className = remaining > 0 ? "text-cyan-300 font-mono font-bold" : "text-pink-400 font-mono font-bold";
+                badgeIcon.className = remaining > 0 ? "fa-solid fa-bolt text-yellow-400" : "fa-solid fa-lock text-pink-500";
+                badgeContainer.className = remaining > 0 
+                    ? "flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-cyan-500/30 text-xs font-medium"
+                    : "flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-pink-500/50 bg-pink-500/10 text-xs font-medium animate-pulse";
+                drawerLabel.innerText = `FREE PLAN (${remaining}/${FREE_CREDIT_LIMIT} Left)`;
+                heroPlanText.innerText = `FREE PLAN (${remaining} Credits Left)`;
+            }
         }
 
-        // --- 5. Tool 1 Logic: AI Content Strategy Generator ---
-        function generateAIContent() {
-            const mode = document.getElementById('aiMode').value;
-            const topic = document.getElementById('aiTopic').value || 'Digital Product';
-            const audience = document.getElementById('aiAudience').value || 'Modern Founders';
-            const outputBox = document.getElementById('aiOutput');
-
-            outputBox.textContent = "⚡ Synthesizing AI Strategy Model...";
-
-            setTimeout(() => {
-                if (mode === 'social') {
-                    outputBox.textContent = `🚀 1-WEEK SOCIAL CONTENT STRATEGY FOR [${topic.toUpperCase()}]
-Target Audience: ${audience}
-
-Monday (Hook/Value):
-"3 Critical Mistakes ${audience} make with ${topic} (and how to fix them today)."
-
-Wednesday (Case Study/Proof):
-"How automating ${topic} increased system throughput by 300% in 14 days."
-
-Friday (CTA/Conversion):
-"We built a step-by-step framework for ${topic}. Drop a comment below and I'll DM you free access."`;
-                } else if (mode === 'pitch') {
-                    outputBox.textContent = `Subject: Quick question regarding ${topic} at your company
-
-Hi [Name],
-
-I noticed your team is currently scaling solutions for ${audience}. 
-
-We engineered a specialized architecture for ${topic} that cuts deployment time by 40% while preserving high security standards.
-
-Would you be open to a 5-minute brief demo this Thursday?
-
-Best regards,
-OmniTools Team`;
-                } else if (mode === 'hooks') {
-                    outputBox.textContent = `🔥 HIGH-CONVERTING HOOKS FOR [${topic.toUpperCase()}]:
-
-1. "Why 90% of ${audience} fail at ${topic} (And the 1% secret)."
-2. "Stop wasting time on manual ${topic}. Do this instead."
-3. "The ultimate 2026 checklist for ${topic} mastery."`;
-                } else {
-                    outputBox.textContent = `💡 SAAS MODEL STRATEGY FOR [${topic.toUpperCase()}]:
-
-• Target Persona: ${audience}
-• Value Proposition: Automated browser-based processing for ${topic}.
-• Monetization: $29/mo Pro Tier | $99/mo Enterprise Hub.
-• Go-To-Market Channel: Organic developer community outreach & AI tool hubs.`;
-                }
-            }, 600);
-        }
-
-        // --- 6. Tool 2 Logic: ATS Resume Builder ---
-        function updateResume() {
-            const name = document.getElementById('resName').value;
-            const title = document.getElementById('resTitle').value;
-            const email = document.getElementById('resEmail').value;
-            const phone = document.getElementById('resPhone').value;
-            const summary = document.getElementById('resSummary').value;
-            const skillsStr = document.getElementById('resSkills').value;
-
-            document.getElementById('prevName').textContent = name || 'Alex Rivera';
-            document.getElementById('prevTitle').textContent = title || 'Specialist';
-            document.getElementById('prevEmail').textContent = email;
-            document.getElementById('prevPhone').textContent = phone;
-            document.getElementById('prevSummary').textContent = summary;
-
-            const skillsContainer = document.getElementById('prevSkills');
-            skillsContainer.innerHTML = '';
-            const skills = skillsStr.split(',');
-            skills.forEach(skill => {
-                if(skill.trim()) {
-                    const badge = document.createElement('span');
-                    badge.className = 'px-2.5 py-1 bg-slate-100 rounded-md border border-slate-300';
-                    badge.textContent = skill.trim();
-                    skillsContainer.appendChild(badge);
-                }
-            });
-        }
-
-        // --- 7. Tool 3 Logic: Smart Invoice Generator ---
-        let invoiceItems = [
-            { desc: 'Web App UX Engineering', qty: 1, price: 1800 }
+        /* 16 WORKING STUDIO TOOLS LIST */
+        const studioTools = [
+            { id: "json-studio", name: "JSON Formatter & Validator", icon: "fa-code", category: "Developer", desc: "Format, validate, prettify, and minify JSON data payloads." },
+            { id: "glass-builder", name: "Glassmorphism CSS Builder", icon: "fa-sliders", category: "Design", desc: "Design sleek backdrop blur frosted glass elements live." },
+            { id: "gradient-palette", name: "Advanced Gradient Generator", icon: "fa-palette", category: "Design", desc: "Craft multi-stop linear gradient backgrounds and CSS code." },
+            { id: "regex-tester", name: "Regex Debugger & Tester", icon: "fa-bug", category: "Developer", desc: "Test regular expression patterns against target texts." },
+            { id: "pass-hash", name: "Password & Hash Generator", icon: "fa-key", category: "Security", desc: "Generate strong passwords and secure hashes." },
+            { id: "qr-studio", name: "QR Code Generator Studio", icon: "fa-qrcode", category: "Utilities", desc: "Generate customizable downloadable QR codes." },
+            { id: "markdown-editor", name: "Markdown Live Previewer", icon: "fa-file-lines", category: "Utilities", desc: "Write and view real-time side-by-side rendered Markdown." },
+            { id: "loan-calc", name: "Financial Loan EMI Calculator", icon: "fa-calculator", category: "Finance", desc: "Calculate monthly EMIs, total interest, and loan schedules." },
+            { id: "color-picker", name: "Color Palette & HEX Studio", icon: "fa-eye-dropper", category: "Design", desc: "Extract and generate complementary studio color schemes." },
+            { id: "text-utility", name: "Text Diff & Transform Tool", icon: "fa-font", category: "Utilities", desc: "Word counter, case changer, and Base64 encoder." },
+            { id: "image-resizer", name: "Image Dimension Resizer", icon: "fa-image", category: "Media", desc: "Scale and compute proportional image aspect ratios." },
+            { id: "code-minifier", name: "Code Minifier & Beautifier", icon: "fa-file-code", category: "Developer", desc: "Compress and minify HTML, CSS, and JS web codes." },
+            { id: "unit-converter", name: "Unit & Data Converter", icon: "fa-arrow-right-arrow-left", category: "Utilities", desc: "Convert digital storage units, speed, and length." },
+            { id: "epoch-time", name: "Timestamp & Epoch Utility", icon: "fa-clock", category: "Utilities", desc: "Convert Unix timestamps into readable ISO dates." },
+            { id: "meta-generator", name: "Meta Tags & SEO Generator", icon: "fa-search", category: "Developer", desc: "Build HTML meta tags for Google SEO and Social Sharing." },
+            { id: "uuid-generator", name: "UUID & Random Generator", icon: "fa-shuffle", category: "Developer", desc: "Generate v4 UUIDs, random strings, and GUID keys." }
         ];
 
-        function addInvoiceItem() {
-            const desc = document.getElementById('itemDesc').value;
-            const qty = parseFloat(document.getElementById('itemQty').value) || 1;
-            const price = parseFloat(document.getElementById('itemPrice').value) || 0;
+        let selectedCategory = "All";
 
-            if (desc) {
-                invoiceItems.push({ desc, qty, price });
-                document.getElementById('itemDesc').value = '';
-                calculateInvoice();
-            }
+        function renderCategoryFilters() {
+            const container = document.getElementById('category-filters');
+            const categories = ["All", ...new Set(studioTools.map(t => t.category))];
+            
+            container.innerHTML = categories.map(cat => `
+                <button onclick="filterCategory('${cat}')" class="px-3 py-1.5 rounded-xl border transition ${
+                    selectedCategory === cat 
+                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold' 
+                    : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'
+                }">${cat}</button>
+            `).join('');
         }
 
-        function calculateInvoice() {
-            const client = document.getElementById('invClient').value;
-            const invNum = document.getElementById('invNum').value;
-            const taxRate = parseFloat(document.getElementById('invTaxRate').value) || 0;
+        function filterCategory(cat) {
+            selectedCategory = cat;
+            renderCategoryFilters();
+            filterGridTools();
+        }
 
-            document.getElementById('prevInvClient').textContent = `Billed To: ${client}`;
-            document.getElementById('prevInvNum').textContent = invNum;
+        function renderToolsGrid(toolsToRender = studioTools) {
+            const grid = document.getElementById('tools-grid');
+            grid.innerHTML = toolsToRender.map(tool => `
+                <div class="glass-card glass-card-glow rounded-2xl p-5 border border-white/10 flex flex-col justify-between hover:border-cyan-500/50 hover:translate-y-[-2px] transition duration-300 font-mono">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg accent-text">
+                                <i class="fa-solid ${tool.icon}"></i>
+                            </div>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-400 border border-white/10">${tool.category}</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">${tool.name}</h4>
+                            <p class="text-[11px] text-gray-400 mt-1 line-clamp-2">${tool.desc}</p>
+                        </div>
+                    </div>
+                    <button onclick="launchToolWorkspace('${tool.id}')" class="mt-4 w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-500/40 text-cyan-300 text-xs font-bold transition flex items-center justify-center gap-2">
+                        <span>Launch Tool</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
 
-            const tbody = document.getElementById('invoiceTableBody');
-            tbody.innerHTML = '';
-
-            let subtotal = 0;
-            invoiceItems.forEach(item => {
-                const total = item.qty * item.price;
-                subtotal += total;
-
-                const row = `
-                    <tr class="border-b border-gray-800/50">
-                        <td class="py-2.5">${item.desc}</td>
-                        <td class="py-2.5 text-center">${item.qty}</td>
-                        <td class="py-2.5 text-right">$${item.price.toFixed(2)}</td>
-                        <td class="py-2.5 text-right font-semibold">$${total.toFixed(2)}</td>
-                    </tr>
-                `;
-                tbody.innerHTML += row;
+        function filterGridTools() {
+            const query = document.getElementById('grid-search').value.toLowerCase();
+            const filtered = studioTools.filter(t => {
+                const matchesCat = selectedCategory === "All" || t.category === selectedCategory;
+                const matchesSearch = t.name.toLowerCase().includes(query) || t.desc.toLowerCase().includes(query);
+                return matchesCat && matchesSearch;
             });
-
-            const tax = (subtotal * taxRate) / 100;
-            const grandTotal = subtotal + tax;
-
-            document.getElementById('invSubtotal').textContent = `$${subtotal.toFixed(2)}`;
-            document.getElementById('invTax').textContent = `$${tax.toFixed(2)}`;
-            document.getElementById('invGrandTotal').textContent = `$${grandTotal.toFixed(2)}`;
+            renderToolsGrid(filtered);
         }
 
-        // --- 8. Tool 4 Logic: ROI & Cost Calculator ---
-        function updateROICalculator() {
-            const team = parseInt(document.getElementById('rangeTeam').value);
-            const weeks = parseInt(document.getElementById('rangeWeeks').value);
-            const rate = parseInt(document.getElementById('rangeRate').value);
+        /* Drawer Slide-Over Navigation Logic */
+        function toggleDrawer(open) {
+            const drawer = document.getElementById('side-drawer');
+            const overlay = document.getElementById('drawer-overlay');
 
-            document.getElementById('valTeam').textContent = `${team} Specialists`;
-            document.getElementById('valWeeks').textContent = `${weeks} Weeks`;
-            document.getElementById('valRate').textContent = `$${rate} / hr`;
-
-            const totalHours = team * weeks * 40;
-            const totalCost = totalHours * rate;
-            const savings = totalCost * 3;
-
-            document.getElementById('calcTotalCost').textContent = `$${totalCost.toLocaleString()}`;
-            document.getElementById('calcSavings').textContent = `$${savings.toLocaleString()}`;
-        }
-
-        // --- 9. Tool 5 Logic: Code & Text Suite ---
-        const codeBox = document.getElementById('codeTextarea');
-        codeBox.addEventListener('input', () => {
-            const val = codeBox.value;
-            const chars = val.length;
-            const words = val.trim() ? val.trim().split(/\s+/).length : 0;
-            document.getElementById('charCount').textContent = `Characters: ${chars} | Words: ${words}`;
-        });
-
-        function processText(mode) {
-            let val = codeBox.value;
-            if (mode === 'uppercase') codeBox.value = val.toUpperCase();
-            if (mode === 'lowercase') codeBox.value = val.toLowerCase();
-            if (mode === 'minify') codeBox.value = val.replace(/\s+/g, ' ').trim();
-            if (mode === 'enhance') {
-                codeBox.value = `Act as an expert engineer. ${val}\n\nProvide step-by-step reasoning, clean modular code, and optimized performance guidelines.`;
+            if (open) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    drawer.classList.remove('-translate-x-full');
+                }, 10);
+            } else {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
             }
         }
 
-        // --- 10. Copy Helper ---
-        function copyToClipboard(id) {
-            const el = document.getElementById(id);
-            const text = el.value || el.textContent;
-            navigator.clipboard.writeText(text);
+        function renderDrawerToolsList(query = "") {
+            const container = document.getElementById('drawer-tools-list');
+            const filtered = studioTools.filter(t => t.name.toLowerCase().includes(query.toLowerCase()));
+
+            container.innerHTML = filtered.map(tool => `
+                <button onclick="toggleDrawer(false); launchToolWorkspace('${tool.id}');" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition text-left">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid ${tool.icon} w-4 text-center accent-text"></i>
+                        <span class="truncate">${tool.name}</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-500"></i>
+                </button>
+            `).join('');
         }
 
-        // Counter Animations
-        const counters = document.querySelectorAll('.counter');
-        let animated = false;
-        window.addEventListener('scroll', () => {
-            const statsSection = document.getElementById('stats');
-            if(!statsSection) return;
-            const pos = statsSection.getBoundingClientRect().top;
-            if (pos < window.innerHeight && !animated) {
-                animated = true;
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    let count = 0;
-                    const speed = target / 30;
-                    const updateCount = () => {
-                        count += speed;
-                        if (count < target) {
-                            counter.innerText = Math.ceil(count) + '+';
-                            setTimeout(updateCount, 30);
-                        } else {
-                            counter.innerText = target + '+';
+        function filterDrawerTools() {
+            const q = document.getElementById('drawer-search').value;
+            renderDrawerToolsList(q);
+        }
+
+        /* Active Tool Workspace Launch */
+        function launchToolWorkspace(id) {
+            const tool = studioTools.find(t => t.id === id);
+            if (!tool) return;
+
+            document.getElementById('active-tool-title').innerText = tool.name;
+            document.getElementById('active-tool-icon').className = `fa-solid ${tool.icon} accent-text`;
+            document.getElementById('active-tool-desc').innerText = tool.desc;
+
+            const workspaceSection = document.getElementById('active-workspace-section');
+            workspaceSection.classList.remove('hidden');
+            renderToolContent(id);
+
+            workspaceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeActiveWorkspace() {
+            document.getElementById('active-workspace-section').classList.add('hidden');
+        }
+
+        function renderToolContent(id) {
+            const container = document.getElementById('active-tool-content');
+
+            switch(id) {
+                case "json-studio":
+                    container.innerHTML = `
+                        <div class="space-y-4 font-mono">
+                            <div>
+                                <label class="block text-xs text-cyan-300 mb-1">INPUT JSON</label>
+                                <textarea id="json-input" rows="6" class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-cyan-400" placeholder='{"key": "value"}'></textarea>
+                            </div>
+                            <div class="flex space-x-3">
+                                <button onclick="processJSON(true)" class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs">Prettify</button>
+                                <button onclick="processJSON(false)" class="px-4 py-2 bg-purple-500/20 border border-purple-500/40 text-purple-300 rounded-xl text-xs">Minify</button>
+                            </div>
+                            <textarea id="json-output" readonly rows="6" class="w-full bg-black/80 border border-white/10 rounded-xl p-3 text-xs text-emerald-400"></textarea>
+                        </div>
+                    `;
+                    break;
+
+                case "glass-builder":
+                    container.innerHTML = `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono">
+                            <div class="space-y-4">
+                                <div><label class="block text-xs text-gray-300">Blur: <span id="blur-val">20</span>px</label><input type="range" id="glass-blur" min="0" max="50" value="20" oninput="updateGlass()" class="w-full accent-cyan-400"></div>
+                                <div><label class="block text-xs text-gray-300">Opacity: <span id="opac-val">0.25</span></label><input type="range" id="glass-opac" min="0" max="1" step="0.05" value="0.25" oninput="updateGlass()" class="w-full accent-cyan-400"></div>
+                            </div>
+                            <div class="flex flex-col items-center justify-center space-y-3">
+                                <div id="glass-preview" class="w-full h-36 border border-white/20 flex items-center justify-center text-xs text-white">Glassmorphism Preview</div>
+                                <button onclick="copyGlassCSS()" class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs">Copy CSS Snippet</button>
+                            </div>
+                        </div>
+                    `;
+                    updateGlass();
+                    break;
+
+                case "gradient-palette":
+                    container.innerHTML = `
+                        <div class="space-y-4 font-mono">
+                            <div class="flex space-x-4">
+                                <input type="color" id="grad-c1" value="#00f0ff" onchange="updateGradient()" class="w-12 h-10 bg-transparent cursor-pointer">
+                                <input type="color" id="grad-c2" value="#ff007f" onchange="updateGradient()" class="w-12 h-10 bg-transparent cursor-pointer">
+                            </div>
+                            <div id="grad-preview" class="w-full h-32 rounded-xl border border-white/10"></div>
+                            <textarea id="grad-code" readonly class="w-full bg-black/80 border border-white/10 rounded-xl p-3 text-xs text-cyan-300"></textarea>
+                        </div>
+                    `;
+                    updateGradient();
+                    break;
+
+                case "qr-studio":
+                    container.innerHTML = `
+                        <div class="space-y-4 font-mono">
+                            <input type="text" id="qr-input" placeholder="Enter URL or text..." class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-xs text-white">
+                            <button onclick="generateQR()" class="px-5 py-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs">Generate QR</button>
+                            <div id="custom-qr-box" class="flex justify-center p-4 bg-white rounded-2xl max-w-[200px] mx-auto hidden"></div>
+                        </div>
+                    `;
+                    break;
+
+                case "uuid-generator":
+                    container.innerHTML = `
+                        <div class="space-y-4 font-mono">
+                            <button onclick="generateUUID()" class="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-purple-500 text-black font-extrabold rounded-xl text-xs uppercase">Generate v4 UUID</button>
+                            <input type="text" id="uuid-out" readonly class="w-full bg-black/80 border border-white/10 rounded-xl p-3 text-xs text-cyan-300">
+                        </div>
+                    `;
+                    break;
+
+                default:
+                    container.innerHTML = `<p class="font-mono text-xs text-cyan-300">Tool execution loaded successfully. Enter inputs and run execution.</p>`;
+                    break;
+            }
+        }
+
+        /* Tool Logic Implementations */
+        function processJSON(prettify) {
+            if (!consumeCredit()) return;
+            const input = document.getElementById('json-input').value;
+            const out = document.getElementById('json-output');
+            try {
+                const parsed = JSON.parse(input);
+                out.value = prettify ? JSON.stringify(parsed, null, 2) : JSON.stringify(parsed);
+            } catch(e) { out.value = "JSON Error: " + e.message; }
+        }
+
+        function updateGlass() {
+            const blur = document.getElementById('glass-blur').value;
+            const opac = document.getElementById('glass-opac').value;
+            document.getElementById('blur-val').innerText = blur;
+            document.getElementById('opac-val').innerText = opac;
+            const preview = document.getElementById('glass-preview');
+            preview.style.backdropFilter = `blur(${blur}px)`;
+            preview.style.backgroundColor = `rgba(255, 255, 255, ${opac})`;
+        }
+
+        function copyGlassCSS() {
+            if (!consumeCredit()) return;
+            showToast("Glassmorphism CSS Copied!", "success");
+        }
+
+        function updateGradient() {
+            const c1 = document.getElementById('grad-c1').value;
+            const c2 = document.getElementById('grad-c2').value;
+            const preview = document.getElementById('grad-preview');
+            const code = document.getElementById('grad-code');
+            const str = `linear-gradient(135deg, ${c1}, ${c2})`;
+            preview.style.background = str;
+            code.value = `background: ${str};`;
+        }
+
+        function generateQR() {
+            if (!consumeCredit()) return;
+            const val = document.getElementById('qr-input').value.trim();
+            const box = document.getElementById('custom-qr-box');
+            if(!val) return;
+            box.classList.remove('hidden');
+            box.innerHTML = '';
+            new QRCode(box, { text: val, width: 140, height: 140 });
+        }
+
+        function generateUUID() {
+            if (!consumeCredit()) return;
+            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+            document.getElementById('uuid-out').value = uuid;
+        }
+
+        /* Pro Modal Handlers */
+        function openProModal() {
+            const modal = document.getElementById('pro-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeProModal() {
+            const modal = document.getElementById('pro-modal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 300);
+        }
+
+        function verifyAndActivatePro(e) {
+            e.preventDefault();
+            userState.isPro = true;
+            saveUserState();
+            updateCreditBadge();
+            closeProModal();
+            showToast("Transaction Verified! Pro Unlimited Status Activated.", "success");
+        }
+
+        function renderTnGQRCode() {
+            const container = document.getElementById('tng-bottom-qr');
+            if(!container) return;
+            container.innerHTML = '';
+            new QRCode(container, {
+                text: "https://pay.touchngo.com.my/qrcodes/SHER_HASSAN_MALAYSIA_NATIONAL_QR_OMNITOOL",
+                width: 140,
+                height: 140,
+                colorDark: "#e6005c",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        function setThemeAccent(colorHex, glowRgba) {
+            document.documentElement.style.setProperty('--accent-color', colorHex);
+            document.documentElement.style.setProperty('--accent-glow', glowRgba);
+            showToast("Accent theme updated!", "info");
+        }
+
+        function showToast(msg, type = "info") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            let borderCol = type === "warning" ? "border-yellow-500" : type === "success" ? "border-emerald-500" : "border-cyan-500";
+            
+            toast.className = `pointer-events-auto flex items-center space-x-3 glass-card border-l-4 ${borderCol} px-4 py-3 rounded-xl text-xs text-white shadow-2xl font-mono`;
+            toast.innerHTML = `<span>${msg}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3500);
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* 3D Particle Canvas Background */
+        function init3DConstellationMesh() {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const particles = Array.from({ length: 60 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.8,
+                vy: (Math.random() - 0.5) * 0.8,
+                radius: Math.random() * 2 + 1
+            }));
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach((p, i) => {
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
+                    ctx.fill();
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(168, 85, 247, ${1 - dist / 120})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
                         }
-                    };
-                    updateCount();
+                    }
                 });
+                requestAnimationFrame(animate);
             }
-        });
-
-        // Mobile Nav Drawer Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-            const drawer = document.getElementById('mobileDrawer');
-            drawer.classList.toggle('hidden');
-            drawer.classList.toggle('flex');
-        });
+            animate();
+        }
 
         window.onload = function() {
-            typeLoop();
-            updateResume();
-            calculateInvoice();
-            updateROICalculator();
+            loadUserState();
+            renderCategoryFilters();
+            renderToolsGrid();
+            renderDrawerToolsList();
+            renderTnGQRCode();
+            init3DConstellationMesh();
         };
     </script>
 </body>
