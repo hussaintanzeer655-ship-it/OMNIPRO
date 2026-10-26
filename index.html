@@ -1,901 +1,274 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3362769301120413"
-     crossorigin="anonymous"></script><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H4VF7WNZRR"></script>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>OmniTool Pro v3 Ultra - Cyberpunk Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+:root{--ac:#00f0ff;--ag:rgba(0,240,255,.35);--ac2:#ff007f;--bg:#05050b;--card:rgba(10,12,24,.75);--bd:rgba(255,255,255,.1);--mu:#9aa3bd}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:#e2e8f0;font-family:Inter,sans-serif;min-height:100vh;overflow-x:hidden}
+button,input,textarea,select,h1,.mono{font-family:"JetBrains Mono",monospace}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.35;z-index:0;pointer-events:none;animation:bf 20s infinite alternate ease-in-out}
+.b1{width:450px;height:450px;top:5%;left:10%;background:radial-gradient(circle,var(--ac),transparent 70%)}
+.b2{width:500px;height:500px;bottom:5%;right:10%;background:radial-gradient(circle,#a855f7,transparent 70%);animation-duration:24s}
+.b3{width:400px;height:400px;top:45%;left:45%;background:radial-gradient(circle,var(--ac2),transparent 70%);animation-duration:26s}
+@keyframes bf{0%{transform:translate(0,0)}33%{transform:translate(50px,-70px)}66%{transform:translate(-40px,60px)}100%{transform:translate(0,0)}}
+.wrap{position:relative;z-index:1}
+.gl{background:var(--card);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--bd);box-shadow:0 8px 32px rgba(0,0,0,.6);border-radius:20px}
+header{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px;border-radius:0;border-width:0 0 1px}
+.row{display:flex;gap:12px;align-items:center}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#a855f7,#ec4899);padding:2px}
+.logo span{background:#0a0c16;border-radius:10px;width:100%;height:100%;display:grid;place-items:center;color:var(--ac);font-size:20px}
+h1{margin:0;font-weight:900;font-size:20px;letter-spacing:.06em}
+.acc{color:var(--ac)}
+.tag{font-size:10px;font-weight:800;padding:2px 8px;border-radius:999px;background:rgba(6,182,212,.2);color:#67e8f9;border:1px solid rgba(6,182,212,.4);letter-spacing:.1em}
+.sub{font-size:10px;color:var(--mu);letter-spacing:.12em;text-transform:uppercase}
+.btn{background:rgba(255,255,255,.05);border:1px solid var(--ag);color:#e2e8f0;padding:9px 14px;border-radius:12px;cursor:pointer;font-size:12px;transition:.25s}
+.btn:hover{background:var(--ag);box-shadow:0 0 15px var(--ag);transform:translateY(-1px)}
+.ico{width:40px;height:40px;padding:0;display:grid;place-items:center;font-size:18px}
+input,textarea,select{background:rgba(0,0,0,.6);border:1px solid var(--bd);border-radius:12px;color:#fff;padding:10px 12px;outline:none;width:100%;font-size:12px}
+input[type=range]{padding:0;accent-color:var(--ac)}
+input:focus,textarea:focus,select:focus{border-color:var(--ac)}
+.drawer{position:fixed;top:0;left:0;height:100%;width:340px;max-width:90vw;transform:translateX(-105%);transition:transform .3s;z-index:60;padding:20px;display:flex;flex-direction:column;gap:14px;border-radius:0 20px 20px 0}
+.drawer.open{transform:none}
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:55;display:none}
+.veil.open{display:block}
+.dl{overflow-y:auto;flex:1;display:grid;gap:4px}
+.dl button{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;color:#cbd5e1;padding:9px;border-radius:10px;cursor:pointer;font-size:12px;text-align:left}
+.dl button:hover{background:rgba(255,255,255,.05);color:#fff}
+.hero{margin:24px 20px 0;padding:28px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.hero h2{margin:8px 0;font-size:clamp(24px,4vw,38px);font-weight:900;letter-spacing:-.02em}
+.chip{display:inline-block;font:12px "JetBrains Mono",monospace;padding:6px 12px;border-radius:999px;background:rgba(6,182,212,.15);color:#67e8f9;border:1px solid rgba(6,182,212,.3)}
+main{max-width:1400px;margin:auto;padding:24px 20px;display:grid;gap:24px}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px}
+.cats{display:flex;gap:8px;flex-wrap:wrap}
+.cat{padding:6px 12px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.05);color:var(--mu);cursor:pointer;font-size:12px}
+.cat.on{background:rgba(0,240,255,.15);border-color:var(--ac);color:var(--ac);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.tc{padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;transition:.3s}
+.tc:hover{border-color:rgba(0,240,255,.5);transform:translateY(-2px)}
+.tc h4{margin:0 0 4px;font-size:14px}
+.tc p{margin:0;font-size:11px;color:var(--mu);line-height:1.5}
+.tc .btn{width:100%;text-align:center}
+.ws{padding:24px;display:none}
+.ws.open{display:block}
+.ws-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--bd);margin-bottom:20px}
+.ws-h h3{margin:0;font-size:20px;font-weight:900}
+.ws-h p{margin:2px 0 0;color:var(--mu);font-size:12px}
+.col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.out{background:rgba(0,0,0,.8);border:1px solid var(--bd);border-radius:12px;padding:12px;font-size:12px;color:#34d399;white-space:pre-wrap;word-break:break-all;min-height:44px}
+label{font-size:11px;color:#67e8f9;display:block;margin-bottom:4px}
+.sw{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px;width:200px}
+.sw button{height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.2);cursor:pointer}
+.menu{position:relative}
+.pop{position:absolute;right:0;top:calc(100% + 8px);display:none;padding:10px;z-index:50}
+.menu:hover .pop{display:block}
+.badge{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(6,182,212,.3);color:#67e8f9}
+.toasts{position:fixed;right:20px;bottom:20px;display:grid;gap:8px;z-index:70}
+.toast{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--ac);padding:10px 14px;border-radius:12px;font-size:12px;animation:tin .3s}
+@keyframes tin{from{transform:translateX(30px);opacity:0}}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:30px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;z-index:65}
+.modal.open{display:flex}
+.adm-box{width:100%;max-width:560px;max-height:90vh;overflow:auto;padding:24px;border-color:var(--ac)}
+#adm-x{float:right}
+#adm-body input,#adm-body textarea{margin-bottom:0}
+@media (max-width:700px){.col{grid-template-columns:1fr}}
+</style></head>
+<body>
+<canvas id="bg"></canvas><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<div class="wrap">
+<header class="gl">
+  <div class="row">
+    <button class="btn ico" id="menu" title="All Studio Tools">☰</button>
+    <div class="brand" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <div class="logo"><span>⚛</span></div>
+      <div>
+        <div class="row" style="gap:8px"><h1>OMNITOOL <span class="acc">PRO</span></h1><span class="tag">V3 ULTRA</span></div>
+        <div class="sub">3D Cyber Studio &amp; Developer Toolkit</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="menu"><button class="btn">🎨 Accent Theme</button><div class="pop gl"><div class="sub" style="padding:4px 4px 8px">Select Theme Color</div><div class="sw" id="sw"></div></div></div>
+    <span class="badge">42 tools live</span><button class="btn" id="adm">⚙ Admin</button>
+  </div>
+</header>
+
+<section class="hero gl">
+  <div>
+    <span class="chip">✦ NEXT-GEN CYBER TOOLKIT STUDIO</span>
+    <h2>16+ AI, Developer &amp; Design Utilities</h2>
+    <p style="color:var(--mu);font-size:14px;margin:0;max-width:560px">Every tool runs instantly in your browser. Nothing you type is uploaded.</p>
+  </div>
+  <div style="text-align:right"><div class="sub">Access</div><div class="acc mono" style="font-weight:700;font-size:13px">ALL TOOLS UNLOCKED</div></div>
+</section>
+
+<main>
+  <div class="bar gl">
+    <input id="q" placeholder="Search tools (e.g. JSON, Regex, QR)..." style="max-width:380px">
+    <div class="cats" id="cats"></div>
+  </div>
+  <section class="grid" id="grid"></section>
+  <section class="gl ws" id="ws">
+    <div class="ws-h">
+      <div class="row"><div class="ico" id="wi" style="width:48px;height:48px;font-size:22px"></div><div><h3 id="wt"></h3><p id="wd"></p></div></div>
+      <button class="btn" id="wc">✕ Close Tool</button>
+    </div>
+    <div id="wb"></div>
+  </section>
+</main>
+<footer>© 2026 OmniTool Pro · Built for developers and creators</footer>
+</div>
+
+<nav class="drawer gl" id="drawer">
+  <div class="row" style="justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--bd)">
+    <div><h1 style="font-size:16px">ALL STUDIO TOOLS</h1><div class="sub">16+ Working Utilities</div></div>
+    <button class="btn ico" id="dx">✕</button>
+  </div>
+  <input id="dq" placeholder="Filter tools...">
+  <div class="dl" id="dl"></div>
+</nav>
+<div class="modal" id="adm-modal"><div class="gl adm-box"><button class="btn ico" id="adm-x">✕</button><div id="adm-body"></div></div></div>
+<div class="veil" id="veil"></div>
+<div class="toasts" id="toasts"></div>
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+const $=s=>document.querySelector(s);
+const toast=m=>{const t=document.createElement('div');t.className='toast';t.textContent=m;$('#toasts').appendChild(t);setTimeout(()=>t.remove(),2800)};
+const copy=t=>{navigator.clipboard?.writeText(t);toast('Copied to clipboard')};
+const ACC=[['#00f0ff','rgba(0,240,255,.35)'],['#a855f7','rgba(168,85,247,.35)'],['#10b981','rgba(16,185,129,.35)'],['#f59e0b','rgba(245,158,11,.35)'],['#ef4444','rgba(239,68,68,.35)'],['#ff007f','rgba(255,0,127,.35)']];
+function setAcc([c,g]){const s=document.documentElement.style;s.setProperty('--ac',c);s.setProperty('--ag',g);localStorage.setItem('omni_acc',JSON.stringify([c,g]))}
+$('#sw').innerHTML=ACC.map(([c,g])=>`<button style="background:${c}" title="${c}"></button>`).join('');
+$('#sw').querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{setAcc(ACC[i]);toast('Accent theme updated')});
+try{const a=JSON.parse(localStorage.getItem('omni_acc'));if(a)setAcc(a)}catch{}
 
-  gtag('config', 'G-H4VF7WNZRR');
+let T=[
+{id:'json',n:'JSON Formatter & Validator',i:'{}',c:'Developer',d:'Format, validate, prettify, and minify JSON.',r(b){b.innerHTML=`<div class=stack><label>Input JSON</label><textarea rows=7></textarea><div class=row><button class=btn data-a=p>Prettify</button><button class=btn data-a=m>Minify</button></div><div class=out></div></div>`;const i=b.querySelector('textarea'),o=b.querySelector('.out');b.querySelectorAll('[data-a]').forEach(x=>x.onclick=()=>{try{const j=JSON.parse(i.value);o.textContent=x.dataset.a==='p'?JSON.stringify(j,null,2):JSON.stringify(j)}catch(e){o.textContent='JSON Error: '+e.message}})}},
+{id:'glass',n:'Glassmorphism CSS Builder',i:'◧',c:'Design',d:'Design frosted glass effects with live blur and opacity.',r(b){b.innerHTML=`<div class=col><div class=stack><label>Blur: <span id=bv>20</span>px</label><input type=range id=bl min=0 max=50 value=20><label>Opacity: <span id=ov>0.25</span></label><input type=range id=op min=0 max=1 step=.05 value=.25></div><div class=stack><div id=pv style="height:170px;border-radius:16px;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;background:linear-gradient(135deg,#06b6d4,#a855f7,#ec4899);font-size:12px">Glass Preview</div><div class=out id=o></div><button class=btn id=cp>Copy CSS</button></div></div>`;const up=()=>{const bl=$('#bl',b),op=$('#op',b),pv=b.querySelector('#pv');b.querySelector('#bv').textContent=bl.value;b.querySelector('#ov').textContent=op.value;pv.style.backdropFilter=pv.style.webkitBackdropFilter=`blur(${bl.value}px)`;pv.style.background=`rgba(255,255,255,${op.value})`;b.querySelector('#o').textContent=`backdrop-filter: blur(${bl.value}px);\nbackground: rgba(255,255,255,${op.value});\nborder: 1px solid rgba(255,255,255,.2);\nborder-radius: 16px;`};b.querySelectorAll('input').forEach(x=>x.oninput=up);b.querySelector('#cp').onclick=()=>copy(b.querySelector('#o').textContent);up()}},
+{id:'gradient',n:'Advanced Gradient Generator',i:'🌈',c:'Design',d:'Build two-color gradients and copy the CSS.',r(b){b.innerHTML=`<div class=stack><div class=row><input type=color id=c1 value="#00f0ff" style="width:80px;height:44px;padding:4px"><input type=color id=c2 value="#ff007f" style="width:80px;height:44px;padding:4px"></div><div id=pv style="height:140px;border-radius:16px"></div><div class=out id=o></div></div>`;const up=()=>{const s=`linear-gradient(135deg, ${b.querySelector('#c1').value}, ${b.querySelector('#c2').value})`;b.querySelector('#pv').style.background=s;b.querySelector('#o').textContent='background: '+s+';'};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'regex',n:'Regex Debugger & Tester',i:'🐞',c:'Developer',d:'Test regular expressions against sample text.',r(b){b.innerHTML=`<div class=stack><div class=row><input class=p placeholder="Pattern, e.g. \\d+"><input class=f value=g style="max-width:90px"></div><textarea rows=5 placeholder="Test text"></textarea><div class=out></div></div>`;const go=()=>{const p=b.querySelector('.p').value,f=b.querySelector('.f').value,t=b.querySelector('textarea').value,o=b.querySelector('.out');try{const fl=f.includes('g')?f:f+'g';const m=[...t.matchAll(new RegExp(p,fl))];o.textContent=m.length?m.length+' match(es):\n'+m.map(x=>x[0]).join('\n'):'No matches'}catch{o.textContent='Invalid pattern'}};b.querySelectorAll('input,textarea').forEach(x=>x.oninput=go)}},
+{id:'password',n:'Password Generator',i:'🔑',c:'Security',d:'Create strong random passwords in one click.',r(b){b.innerHTML=`<div class=stack><label>Length: <span>16</span></label><input type=range min=8 max=64 value=16><div class=out></div><div class=row><button class=btn>Generate</button><button class=btn>Copy</button></div></div>`;const [rg]=b.querySelectorAll('input'),sp=b.querySelector('label span'),o=b.querySelector('.out');const gen=()=>{const s='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+',a=new Uint32Array(+rg.value);crypto.getRandomValues(a);o.textContent=[...a].map(x=>s[x%s.length]).join('')};rg.oninput=()=>{sp.textContent=rg.value;gen()};const [g,c]=b.querySelectorAll('button');g.onclick=gen;c.onclick=()=>copy(o.textContent);gen()}},
+{id:'qr',n:'QR Code Generator Studio',i:'▦',c:'Utilities',d:'Turn any link or text into a downloadable QR code.',r(b){b.innerHTML=`<div class=stack><input placeholder="Enter URL or text..."><button class=btn>Generate QR</button><div id=qb style="background:#fff;padding:14px;border-radius:16px;width:fit-content;margin:auto"></div></div>`;b.querySelector('button').onclick=()=>{const v=b.querySelector('input').value.trim();if(!v)return toast('Enter a URL or text first');const q=b.querySelector('#qb');q.innerHTML='';new QRCode(q,{text:v,width:180,height:180})}}},
+{id:'markdown',n:'Markdown Live Previewer',i:'📝',c:'Utilities',d:'Write Markdown and see the rendered result side by side.',r(b){b.innerHTML=`<div class=col><textarea rows=12 placeholder="# Hello&#10;Write **Markdown** here"></textarea><div class=out id=pv style="color:#e2e8f0;min-height:260px;white-space:normal"></div></div>`;const t=b.querySelector('textarea'),p=b.querySelector('#pv');t.oninput=()=>p.innerHTML=marked.parse(t.value)}},
+{id:'loan',n:'Financial Loan EMI Calculator',i:'🧮',c:'Finance',d:'Calculate monthly payments, total cost, and interest.',r(b){b.innerHTML=`<div class=col><div class=stack><label>Loan amount</label><input id=p type=number value=100000><label>Annual rate %</label><input id=r type=number value=6><label>Years</label><input id=y type=number value=20></div><div class=out id=o></div></div>`;const up=()=>{const P=+$('#p',b).value,i=$('#r',b).value/1200,n=$('#y',b).value*12;const e=i?P*i*(1+i)**n/((1+i)**n-1):P/n;b.querySelector('#o').textContent=`Monthly EMI: ${e.toFixed(2)}\nTotal paid: ${(e*n).toFixed(2)}\nTotal interest: ${(e*n-P).toFixed(2)}`};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'color',n:'Color Palette & HEX Studio',i:'🎨',c:'Design',d:'Generate matching palettes from one base color.',r(b){b.innerHTML=`<div class=stack><input type=color value="#00f0ff" style="width:100px;height:44px;padding:4px"><div class=row id=pal></div></div>`;const hx=(h)=>'#'+h.map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('');const rgb=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));const up=()=>{const [r,g,bl]=rgb(b.querySelector('input').value);const sh=[[r,g,bl],[255-r,255-g,255-bl],[r*.6,g*.6,bl*.6],[r+(255-r)*.5,g+(255-g)*.5,bl+(255-bl)*.5]];b.querySelector('#pal').innerHTML=sh.map(c=>`<div style="flex:1;height:90px;border-radius:14px;background:${hx(c)};display:grid;place-items:end center;padding:8px;font-size:11px;color:#000">${hx(c)}</div>`).join('')};b.querySelector('input').oninput=up;up()}},
+{id:'text',n:'Text Diff & Transform Tool',i:'Aa',c:'Utilities',d:'Count words and characters, change case, or Base64 encode.',r(b){b.innerHTML=`<div class=stack><textarea rows=6 placeholder="Paste text..."></textarea><div class=row><button class=btn data-a=u>UPPER</button><button class=btn data-a=l>lower</button><button class=btn data-a=b>Base64</button></div><div class=out></div></div>`;const t=b.querySelector('textarea'),o=b.querySelector('.out');const st=()=>{const w=t.value.trim()?t.value.trim().split(/\s+/).length:0;return `Words: ${w} · Characters: ${t.value.length}`};t.oninput=()=>o.textContent=st();b.querySelectorAll('[data-a]').forEach(x=>x.onclick=()=>{const a=x.dataset.a;t.value=a==='u'?t.value.toUpperCase():a==='l'?t.value.toLowerCase():btoa(unescape(encodeURIComponent(t.value)));o.textContent=st()})}},
+{id:'resize',n:'Image Dimension Resizer',i:'⤢',c:'Media',d:'Scale an image while keeping its aspect ratio.',r(b){b.innerHTML=`<div class=col><div class=stack><label>Original width (px)</label><input id=w type=number value=1920><label>Original height (px)</label><input id=h type=number value=1080><label>New width (px)</label><input id=nw type=number value=960></div><div class=out id=o></div></div>`;const up=()=>{const w=+$('#w',b).value,h=+$('#h',b).value,nw=+$('#nw',b).value;const nh=Math.round(nw*h/w);b.querySelector('#o').textContent=`New size: ${nw} × ${nh}px\nScale: ${(nw/w*100).toFixed(1)}%\nAspect ratio: ${(w/h).toFixed(3)}:1`};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'minify',n:'Code Minifier & Beautifier',i:'</>',c:'Developer',d:'Compress CSS or JS by removing comments and spacing.',r(b){b.innerHTML=`<div class=stack><textarea rows=7 placeholder="Paste CSS or JavaScript..."></textarea><button class=btn>Minify</button><div class=out></div></div>`;b.querySelector('button').onclick=()=>{const s=b.querySelector('textarea').value;b.querySelector('.out').textContent=s.replace(/\/\*[\s\S]*?\*\//g,'').replace(/\/\/[^\n]*/g,'').replace(/\s+/g,' ').replace(/\s*([{}:;,])\s*/g,'$1').trim()}}},
+{id:'unit',n:'Unit & Data Converter',i:'⇄',c:'Utilities',d:'Convert length, weight, and digital storage units.',r(b){const U={Length:{m:1,km:1e3,cm:.01,ft:.3048,in:.0254,mi:1609.344},Weight:{kg:1,g:.001,lb:.453592,oz:.0283495},Data:{B:1,KB:1024,MB:1024**2,GB:1024**3,TB:1024**4}};b.innerHTML=`<div class=stack><select>${Object.keys(U).map(k=>`<option>${k}</option>`).join('')}</select><div class=row><input type=number value=1><select></select><select></select></div><div class=out></div></div>`;const [cat,v,f,t]=[b.querySelector('select'),b.querySelector('input'),...b.querySelectorAll('select:not(:first-child)')];const fill=()=>{const o=Object.keys(U[cat.value]).map(k=>`<option>${k}</option>`).join('');f.innerHTML=o;t.innerHTML=o;t.selectedIndex=1};const up=()=>{const u=U[cat.value];b.querySelector('.out').textContent=`${v.value} ${f.value} = ${+(v.value*u[f.value]/u[t.value]).toPrecision(8)} ${t.value}`};cat.onchange=()=>{fill();up()};[v,f,t].forEach(x=>x.oninput=x.onchange=up);fill();up()}},
+{id:'epoch',n:'Timestamp & Epoch Utility',i:'⏱',c:'Utilities',d:'Convert Unix timestamps into readable dates.',r(b){b.innerHTML=`<div class=stack><div class=row><input placeholder="Unix timestamp (seconds)"><button class=btn>Now</button></div><div class=out></div></div>`;const i=b.querySelector('input'),o=b.querySelector('.out');const up=()=>{const n=+i.value;o.textContent=i.value&&!isNaN(n)?new Date(n*1000).toISOString()+'\n'+new Date(n*1000).toLocaleString():'Enter a timestamp'};i.oninput=up;b.querySelector('button').onclick=()=>{i.value=Math.floor(Date.now()/1000);up()}}},
+{id:'meta',n:'Meta Tags & SEO Generator',i:'🔎',c:'Developer',d:'Build title, description, and social meta tags.',r(b){b.innerHTML=`<div class=col><div class=stack><label>Page title</label><input id=t placeholder="My Page"><label>Description</label><textarea id=d rows=4 placeholder="A short summary..."></textarea></div><div class=out id=o></div></div>`;const up=()=>{const t=$('#t',b).value,d=$('#d',b).value;b.querySelector('#o').textContent=`<title>${t}</title>\n<meta name="description" content="${d}">\n<meta property="og:title" content="${t}">\n<meta property="og:description" content="${d}">`};b.querySelectorAll('input,textarea').forEach(x=>x.oninput=up);up()}},
+{id:'uuid',n:'UUID & Random Generator',i:'🎲',c:'Developer',d:'Generate v4 UUIDs for IDs and keys.',r(b){b.innerHTML=`<div class=stack><button class=btn>Generate UUID</button><div class=out></div></div>`;const o=b.querySelector('.out');b.querySelector('button').onclick=()=>o.textContent=crypto.randomUUID()}}
+];
+
+T.push(
+{id:'calc',n:'Calculator',i:'🧮',c:'Math',d:'Solve quick arithmetic expressions.',how:"Type a math expression such as (12+8)*3/2 and press Calculate. Use ^ for powers.",r(b){b.innerHTML=`<div class=stack><input placeholder="e.g. (12+8)*3/2"><button class=btn>Calculate</button><div class=out></div></div>`;const i=b.querySelector('input'),o=b.querySelector('.out');b.querySelector('button').onclick=()=>{try{if(!/^[\d+\-*/().%\s^]+$/.test(i.value))throw 0;o.textContent=Function('return ('+i.value.replace(/\^/g,'**')+')')()}catch{o.textContent='Invalid expression'}}}},
+{id:'percent',n:'Percentage Calculator',i:'％',c:'Math',d:'Find a percentage of any number.',how:"Enter a percentage and a number. The result appears as you type.",r(b){b.innerHTML=`<div class=row><input id=pa type=number value=20><span>% of</span><input id=pb type=number value=150></div><div class=out></div>`;const up=()=>b.querySelector('.out').textContent=((b.querySelector('#pa').value*b.querySelector('#pb').value)/100).toFixed(4).replace(/\.?0+$/,'');b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'tip',n:'Tip Splitter',i:'💵',c:'Finance',d:'Work out the tip and split a bill between people.',how:"Enter the bill, the tip percentage, and the number of people. Each person's share updates automatically.",r(b){b.innerHTML=`<div class=row><input id=bi type=number value=50 placeholder="Bill"><input id=tp type=number value=15 placeholder="Tip %"><input id=pp type=number value=2 placeholder="People"></div><div class=out></div>`;const up=()=>{const bl=+b.querySelector('#bi').value,t=bl*b.querySelector('#tp').value/100,n=Math.max(1,+b.querySelector('#pp').value||1);b.querySelector('.out').textContent=`Tip: ${t.toFixed(2)}\nTotal: ${(bl+t).toFixed(2)}\nPer person: ${((bl+t)/n).toFixed(2)}`};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'bmi',n:'BMI Calculator',i:'⚖️',c:'Health',d:'Check your body mass index with a general guide.',how:"Enter your weight in kilograms and height in centimeters. This is a general guide only, not medical advice.",r(b){b.innerHTML=`<div class=row><input id=bw type=number value=70 placeholder="Weight (kg)"><input id=bh type=number value=170 placeholder="Height (cm)"></div><div class=out></div>`;const up=()=>{const v=b.querySelector('#bw').value/Math.pow(b.querySelector('#bh').value/100,2);b.querySelector('.out').textContent=`BMI: ${v.toFixed(1)} (${v<18.5?'Underweight':v<25?'Healthy range':v<30?'Overweight':'Obese'})`};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'age',n:'Age Calculator',i:'🎂',c:'Time',d:'Find your exact age and how many days you have lived.',how:"Pick your date of birth. Your age in years and total days lived appear instantly.",r(b){b.innerHTML=`<div class=stack><label>Date of birth</label><input type=date></div><div class=out></div>`;const i=b.querySelector('input');i.oninput=()=>{const bd=new Date(i.value),n=new Date();if(isNaN(bd))return;let y=n.getFullYear()-bd.getFullYear();if(n<new Date(n.getFullYear(),bd.getMonth(),bd.getDate()))y--;b.querySelector('.out').textContent=`${y} years old\n${Math.floor((n-bd)/864e5).toLocaleString()} days lived`}}},
+{id:'datediff',n:'Date Difference Calculator',i:'📅',c:'Time',d:'Count the days between two dates.',how:"Pick a start date and an end date. The number of days and weeks between them appears below.",r(b){b.innerHTML=`<div class=row><div><label>From</label><input id=da type=date></div><div><label>To</label><input id=db type=date></div></div><div class=out></div>`;const up=()=>{const x=new Date(b.querySelector('#da').value),y=new Date(b.querySelector('#db').value);if(isNaN(x)||isNaN(y))return;const d=Math.round((y-x)/864e5);b.querySelector('.out').textContent=`${Math.abs(d)} days (${(Math.abs(d)/7).toFixed(1)} weeks)`};b.querySelectorAll('input').forEach(x=>x.oninput=up)}},
+{id:'dice',n:'Dice & Coin Flip',i:'🎯',c:'Fun',d:'Flip a coin, roll a die, or pick a random number.',how:"Press Flip coin for heads or tails, Roll d6 for a die result, or set a maximum and press Random number.",r(b){b.innerHTML=`<div class=stack><div class=row><button class=btn data-a=c>Flip coin</button><button class=btn data-a=d>Roll d6</button><button class=btn data-a=n>Random number</button></div><input type=number value=100 placeholder="Max number (for random)"><div class=out style="font-size:28px;text-align:center"></div></div>`;const o=b.querySelector('.out'),m=b.querySelector('input');b.querySelectorAll('[data-a]').forEach(x=>x.onclick=()=>{const a=x.dataset.a;o.textContent=a==='c'?(Math.random()<.5?'Heads':'Tails'):a==='d'?1+Math.floor(Math.random()*6):1+Math.floor(Math.random()*(+m.value||100))})}},
+{id:'roman',n:'Roman Numeral Converter',i:'Ⅻ',c:'Math',d:'Convert numbers to Roman numerals and back.',how:"Type a number from 1 to 3999 to get its Roman numeral, or type a Roman numeral such as MCMXCIV to get the number.",r(b){const R=[[1000,'M'],[900,'CM'],[500,'D'],[400,'CD'],[100,'C'],[90,'XC'],[50,'L'],[40,'XL'],[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']],V={I:1,V:5,X:10,L:50,C:100,D:500,M:1000};b.innerHTML=`<div class=stack><input placeholder="e.g. 1994 or MCMXCIV"><div class=out></div></div>`;const i=b.querySelector('input'),o=b.querySelector('.out');i.oninput=()=>{const v=i.value.trim().toUpperCase();if(/^\d+$/.test(v)&&+v>0&&+v<4000){let n=+v,s='';for(const[a,c]of R)while(n>=a){s+=c;n-=a}o.textContent=s}else if(/^[IVXLCDM]+$/.test(v)){let t=0;for(let k=0;k<v.length;k++){const c=V[v[k]],nx=V[v[k+1]]||0;t+=c<nx?-c:c}o.textContent=t}else o.textContent='Enter 1–3999 or a Roman numeral'}}},
+{id:'base',n:'Number Base Converter',i:'0x',c:'Developer',d:'Convert numbers between decimal, binary, octal, and hex.',how:"Choose the base of your number, type it, and read the decimal, binary, octal, and hex results.",r(b){b.innerHTML=`<div class=stack><div class=row><select><option value=10>Decimal</option><option value=2>Binary</option><option value=8>Octal</option><option value=16>Hex</option></select><input placeholder="Value"></div><div class=out></div></div>`;const s=b.querySelector('select'),i=b.querySelector('input'),o=b.querySelector('.out');const up=()=>{const n=parseInt(i.value,+s.value);o.textContent=isNaN(n)?'Enter a valid value':`Decimal: ${n}\nBinary: ${n.toString(2)}\nOctal: ${n.toString(8)}\nHex: ${n.toString(16).toUpperCase()}`};s.onchange=i.oninput=up}},
+{id:'temp',n:'Temperature Converter',i:'🌡️',c:'Utilities',d:'Convert between Celsius, Fahrenheit, and Kelvin.',how:"Enter a temperature and choose the unit it is in. The other two units update instantly.",r(b){b.innerHTML=`<div class=stack><div class=row><input type=number value=20><select><option>C</option><option>F</option><option>K</option></select></div><div class=out></div></div>`;const i=b.querySelector('input'),s=b.querySelector('select'),o=b.querySelector('.out');const up=()=>{const v=+i.value,u=s.value;const c=u==='C'?v:u==='F'?(v-32)*5/9:v-273.15;o.textContent=`${c.toFixed(2)} °C\n${(c*9/5+32).toFixed(2)} °F\n${(c+273.15).toFixed(2)} K`};i.oninput=s.onchange=up;up()}},
+{id:'slug',n:'Slug & Text Cleaner',i:'🔗',c:'Text',d:'Turn any title into a clean URL slug.',how:"Paste a title or sentence. The URL-friendly version appears below. Press Copy slug to use it in your link.",r(b){b.innerHTML=`<div class=stack><input placeholder="My Blog Post Title!"><div class=out></div><button class=btn>Copy slug</button></div>`;const i=b.querySelector('input'),o=b.querySelector('.out');i.oninput=()=>o.textContent=i.value.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s-]/g,'').trim().replace(/[\s-]+/g,'-');b.querySelector('button').onclick=()=>copy(o.textContent)}},
+{id:'lorem',n:'Lorem Ipsum Generator',i:'📰',c:'Text',d:'Create placeholder text for designs and mockups.',how:"Set how many paragraphs you need and press Generate. Use Copy to paste the text into your design.",r(b){const W='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'.split(' ');b.innerHTML=`<div class=stack><div class=row><input type=number value=3 min=1 max=20><button class=btn>Generate</button><button class=btn>Copy</button></div><div class=out style="white-space:pre-wrap"></div></div>`;const i=b.querySelector('input'),o=b.querySelector('.out');const gen=()=>{const ps=[];for(let p=0;p<(+i.value||1);p++){const s=[];for(let k=0;k<60;k++)s.push(W[Math.floor(Math.random()*W.length)]);s[0]=s[0][0].toUpperCase()+s[0].slice(1);ps.push(s.join(' ')+'.')}o.textContent=ps.join('\n\n')};const [g,c]=b.querySelectorAll('button');g.onclick=gen;c.onclick=()=>copy(o.textContent);gen()}},
+{id:'notes',n:'Quick Notes',i:'🗒️',c:'Productivity',d:'Jot down notes that save automatically on this device.',how:"Type anything in the box. Notes save automatically in this browser, so they stay after you close the page.",r(b){b.innerHTML=`<div class=stack><textarea rows=10 placeholder="Start writing..."></textarea><div class=sub>Auto-saved on this device</div></div>`;const t=b.querySelector('textarea');t.value=localStorage.getItem('omni_notes')||'';t.oninput=()=>localStorage.setItem('omni_notes',t.value)}},
+{id:'todo',n:'To-Do List',i:'✅',c:'Productivity',d:'Track tasks and check them off as you finish.',how:"Type a task and press Add. Click a task to mark it done, or press ✕ to delete it.",r(b){let items=JSON.parse(localStorage.getItem('omni_todo')||'[]');const draw=()=>{localStorage.setItem('omni_todo',JSON.stringify(items));b.innerHTML=`<div class=stack><div class=row><input placeholder="New task"><button class=btn>Add</button></div>${items.map((x,k)=>`<div class=row style="justify-content:space-between;padding:8px 10px;border:1px solid var(--bd);border-radius:12px"><span data-t="${k}" style="cursor:pointer;${x.d?'text-decoration:line-through;opacity:.5':''}">${x.t}</span><button class=btn data-x="${k}">✕</button></div>`).join('')||'<div class=sub>No tasks yet</div>'}</div>`;const inp=b.querySelector('input');b.querySelector('button').onclick=()=>{if(inp.value.trim()){items.push({t:inp.value.trim(),d:false});draw()}};b.querySelectorAll('[data-t]').forEach(s=>s.onclick=()=>{items[s.dataset.t].d=!items[s.dataset.t].d;draw()});b.querySelectorAll('[data-x]').forEach(x=>x.onclick=()=>{items.splice(x.dataset.x,1);draw()})};draw()}},
+{id:'hash',n:'SHA-256 Hash Generator',i:'#️⃣',c:'Security',d:'Create a SHA-256 fingerprint of any text.',how:"Paste text into the box. The SHA-256 hash appears below. The same text always gives the same hash.",r(b){b.innerHTML=`<div class=stack><textarea rows=4 placeholder="Text to hash"></textarea><div class=out></div></div>`;const t=b.querySelector('textarea'),o=b.querySelector('.out');t.oninput=async()=>{const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t.value));o.textContent=[...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,'0')).join('')}}},
+{id:'url',n:'URL Encoder & Decoder',i:'%',c:'Developer',d:'Encode or decode text for web addresses.',how:"Paste text or a link. Press Encode to make it URL-safe, or Decode to turn %20-style text back into readable text.",r(b){b.innerHTML=`<div class=stack><textarea rows=4 placeholder="Text or URL"></textarea><div class=row><button class=btn data-a=e>Encode</button><button class=btn data-a=d>Decode</button></div><div class=out></div></div>`;const t=b.querySelector('textarea'),o=b.querySelector('.out');b.querySelectorAll('[data-a]').forEach(x=>x.onclick=()=>{try{o.textContent=x.dataset.a==='e'?encodeURIComponent(t.value):decodeURIComponent(t.value)}catch{o.textContent='Could not decode this text'}})}}
+);
+const H={json:'Paste JSON into the box, then press Prettify to format it or Minify to compress it.',glass:'Move the blur and opacity sliders and watch the preview change. Press Copy CSS to paste the code into your stylesheet.',gradient:'Pick two colors. The preview updates, and the CSS line can be copied from the box.',regex:'Type a pattern, such as \\d+ for numbers. Enter sample text below to see every match in the result.',password:'Drag the slider to choose a length. Press Generate for a new password and Copy to save it.',qr:'Type a link or text, press Generate QR, then scan the code with your phone camera.',markdown:'Type on the left using Markdown, such as # for titles or **bold**. The rendered preview appears on the right.',loan:'Enter the loan amount, yearly interest rate, and years. The monthly payment and total interest update instantly.',color:'Pick a base color. Four matching shades appear below, and you can copy any HEX code shown.',text:'Paste text to see word and character counts. Use the buttons to change case or convert to Base64.',resize:'Enter the original size and the new width. The new height keeps the same proportions.',minify:'Paste CSS or JavaScript and press Minify to remove comments and extra spaces.',unit:'Pick a category, type a value, and choose the units to convert from and to.',epoch:'Enter a Unix timestamp in seconds, or press Now to fill in the current time.',meta:'Type a page title and description. Copy the tags and paste them inside your page head.',uuid:'Press Generate UUID for a random unique ID. Use it for database keys or test data.'};
+T.push(
+{id:'findrep',n:'Find & Replace',i:'🔁',c:'Text',d:'Replace words or phrases in your text all at once.',how:'Paste your text, type the word to find and the word to replace it with. The result appears below, ready to copy.',r(b){b.innerHTML=`<div class=stack><textarea rows=6 placeholder='Your text'></textarea><div class=row><input class=f placeholder='Find'><input class=w placeholder='Replace with'></div><div class=out></div></div>`;const t=b.querySelector('textarea'),f=b.querySelector('.f'),w=b.querySelector('.w'),o=b.querySelector('.out');const up=()=>o.textContent=f.value?t.value.split(f.value).join(w.value):t.value;t.oninput=f.oninput=w.oninput=up}},
+{id:'lines',n:'Sort & Remove Duplicates',i:'📋',c:'Text',d:'Sort lines alphabetically and remove repeated lines.',how:'Paste a list with one item per line. Press Sort A–Z to sort it, or Remove duplicates to keep only unique lines.',r(b){b.innerHTML=`<div class=stack><textarea rows=7 placeholder='One item per line'></textarea><div class=row><button class=btn data-a=s>Sort A–Z</button><button class=btn data-a=d>Remove duplicates</button></div><div class=out></div></div>`;const t=b.querySelector('textarea'),o=b.querySelector('.out');b.querySelectorAll('[data-a]').forEach(x=>x.onclick=()=>{let L=t.value.split('\n');L=x.dataset.a==='s'?L.sort((p,q)=>p.localeCompare(q)):[...new Set(L)];t.value=L.join('\n');o.textContent=`${L.length} lines`})}},
+{id:'csv',n:'CSV to JSON Converter',i:'📑',c:'Developer',d:'Turn comma-separated data into JSON.',how:'Paste CSV data with the first line as column names. Press Convert to get JSON you can use in your apps.',r(b){b.innerHTML=`<div class=stack><textarea rows=6 placeholder='name,age (first line = column names)'></textarea><button class=btn>Convert</button><div class=out></div></div>`;const t=b.querySelector('textarea'),o=b.querySelector('.out');b.querySelector('button').onclick=()=>{try{const L=t.value.trim().split('\n').map(x=>x.split(','));const h=L.shift().map(k=>k.trim());o.textContent=JSON.stringify(L.map(r=>Object.fromEntries(h.map((k,i)=>[k,(r[i]||'').trim()]))),null,2)}catch(e){o.textContent='Error: '+e.message}}}},
+{id:'imgb64',n:'Image to Base64',i:'🖼️',c:'Media',d:'Convert an image file into Base64 text for code.',how:'Press Choose file and select a picture from your device. Copy the Base64 text to use in HTML or CSS.',r(b){b.innerHTML=`<div class=stack><input type=file><div class=out style='max-height:220px;overflow:auto'></div><button class=btn>Copy</button></div>`;const f=b.querySelector('input'),o=b.querySelector('.out');f.accept='image/*';f.onchange=()=>{const r=new FileReader();r.onload=()=>o.textContent=r.result;r.readAsDataURL(f.files[0])};b.querySelector('button').onclick=()=>copy(o.textContent)}},
+{id:'contrast',n:'Color Contrast Checker',i:'🅰️',c:'Design',d:'Check if text and background colors are easy to read (WCAG).',how:'Pick a text color and a background color. The contrast ratio and a pass or fail result appear below.',r(b){b.innerHTML=`<div class=stack><div class=row><label>Text <input type=color value=#ffffff style='width:70px;height:40px;padding:4px'></label><label>Background <input type=color value=#05050b style='width:70px;height:40px;padding:4px'></label></div><div id=pv style='padding:24px;border-radius:14px;font-size:20px;font-weight:700'>Sample text</div><div class=out></div></div>`;const [a,c]=b.querySelectorAll('input'),pv=b.querySelector('#pv'),o=b.querySelector('.out');const Lum=h=>{const v=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)/255).map(x=>x<=.03928?x/12.92:((x+.055)/1.055)**2.4);return .2126*v[0]+.7152*v[1]+.0722*v[2]};const up=()=>{pv.style.color=a.value;pv.style.background=c.value;const l1=Lum(a.value),l2=Lum(c.value),ratio=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);o.textContent=`Contrast ratio: ${ratio.toFixed(2)}:1\nNormal text: ${ratio>=4.5?'PASS (AA)':'FAIL'}\nLarge text: ${ratio>=3?'PASS (AA)':'FAIL'}`};a.oninput=c.oninput=up;up()}},
+{id:'compound',n:'Compound Interest Calculator',i:'📈',c:'Finance',d:'See how savings grow over time with compound interest.',how:'Enter the starting amount, yearly interest rate, years, and how many times per year interest is added. The final amount appears below.',r(b){b.innerHTML=`<div class=col><div class=stack><label>Starting amount</label><input value=10000><label>Yearly interest %</label><input value=7><label>Years</label><input value=10><label>Times compounded per year</label><input value=12></div><div class=out></div></div>`;const [p,rt,y,n]=b.querySelectorAll('input'),o=b.querySelector('.out');const up=()=>{const A=+p.value*(1+(+rt.value/100)/+n.value)**(+n.value*+y.value);o.textContent=`Final amount: ${A.toFixed(2)}\nInterest earned: ${(A-p.value).toFixed(2)}`};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'discount',n:'Discount & Sale Price',i:'🏷️',c:'Finance',d:'Find the sale price and how much you save.',how:'Enter the original price and the discount percentage. The sale price and the amount you save update instantly.',r(b){b.innerHTML=`<div class=row><input type=number value=200 placeholder='Original price'><input type=number value=25 placeholder='Discount %'></div><div class=out></div>`;const [p,d]=b.querySelectorAll('input'),o=b.querySelector('.out');const up=()=>{const s=p.value*(1-d.value/100);o.textContent=`Sale price: ${s.toFixed(2)}\nYou save: ${(p.value-s).toFixed(2)}`};b.querySelectorAll('input').forEach(x=>x.oninput=up);up()}},
+{id:'tz',n:'Time Zone Converter',i:'🌍',c:'Time',d:'See the current time in cities around the world.',how:'Choose a time zone from the list to see the local time there right now. Press Refresh to update it.',r(b){const Z=['UTC','Asia/Kuala_Lumpur','Asia/Karachi','Asia/Kolkata','Europe/London','America/New_York','America/Los_Angeles','Asia/Tokyo','Australia/Sydney'];b.innerHTML=`<div class=stack><select>${Z.map(z=>`<option>${z}</option>`).join('')}</select><div class=out></div><button class=btn>Refresh</button></div>`;const s=b.querySelector('select'),o=b.querySelector('.out');const up=()=>o.textContent=new Date().toLocaleString('en-GB',{timeZone:s.value,dateStyle:'full',timeStyle:'medium'});s.onchange=up;b.querySelector('button').onclick=up;up()}},
+{id:'countdown',n:'Countdown Timer',i:'⏳',c:'Time',d:'See how much time is left until a date and time.',how:'Pick a date and time. The days, hours, and minutes left appear. Pick the date again to refresh the count.',r(b){b.innerHTML=`<div class=stack><input type=datetime-local><div class=out>Pick a date and time</div></div>`;const i=b.querySelector('input'),o=b.querySelector('.out');i.oninput=()=>{const t=new Date(i.value)-Date.now();if(!i.value||isNaN(t))return;o.textContent=t<=0?'That time has already passed.':`${Math.floor(t/864e5)} days, ${Math.floor(t%864e5/36e5)} hours, ${Math.floor(t%36e5/6e4)} minutes left`}}},
+{id:'speed',n:'Speed, Distance & Time',i:'🚗',c:'Math',d:'Find speed, distance, or travel time from any two values.',how:'Enter any two fields and leave the third blank. The missing value is calculated for you.',r(b){b.innerHTML=`<div class=row><input placeholder='Distance (km)' type=number><input placeholder='Time (hours)' type=number><input placeholder='Speed (km/h)' type=number></div><div class=out></div>`;const [d,tm,s]=b.querySelectorAll('input'),o=b.querySelector('.out');const up=()=>{const D=+d.value,Tm=+tm.value,S=+s.value;if(d.value&&tm.value)o.textContent=`Speed: ${(D/Tm).toFixed(2)} km/h`;else if(s.value&&tm.value)o.textContent=`Distance: ${(S*Tm).toFixed(2)} km`;else if(d.value&&s.value)o.textContent=`Time: ${(D/S).toFixed(2)} hours`;else o.textContent='Fill in any two fields'};b.querySelectorAll('input').forEach(x=>x.oninput=up)}}
+);
+T.forEach(t=>{t.how=t.how||H[t.id]});
+const cats=()=>['All',...new Set(T.map(t=>t.c))];
+let cat='All';
+function renderCats(){$('#cats').innerHTML=cats().map(c=>`<span class="cat ${c===cat?'on':''}" data-c="${c}">${c}</span>`).join('');$('#cats').querySelectorAll('.cat').forEach(s=>s.onclick=()=>{cat=s.dataset.c;renderCats();renderGrid()})}
+function filt(q){return T.filter(t=>(cat==='All'||t.c===cat)&&(t.n+t.d).toLowerCase().includes(q.toLowerCase()))}
+function renderGrid(){$('#grid').innerHTML=filt($('#q').value).map(t=>`<div class="gl tc"><div><div class=row style="justify-content:space-between;margin-bottom:12px"><div class=ico>${t.i}</div><span class="chip" style="font-size:10px">${t.c}</span></div><h4>${t.n}</h4><p>${t.d}</p></div><button class=btn data-id="${t.id}">Launch Tool →</button></div>`).join('')||'<p class=sub>No tools match your search.</p>';$('#grid').querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>launch(b.dataset.id))}
+function launch(id){const t=T.find(x=>x.id===id);if(!t)return;$('#wi').textContent=t.i;$('#wt').textContent=t.n;$('#wd').textContent=t.d;t.r($('#wb'));let h=$('#how');if(!h){h=document.createElement('div');h.id='how';$('#ws').appendChild(h)}h.style.cssText='margin-top:20px;padding:14px 16px;border-radius:14px;background:rgba(0,240,255,.06);border:1px solid var(--bd);font-size:13px;line-height:1.7;color:#e2e8f0';h.innerHTML='<b class=acc>How to use:</b> '+(t.how||'Enter your input and read the result.');$('#ws').classList.add('open');$('#ws').scrollIntoView({behavior:'smooth',block:'start'});closeDrawer()}
+$('#wc').onclick=()=>$('#ws').classList.remove('open');
+$('#q').oninput=renderGrid;
+
+function renderDrawer(){const q=$('#dq').value.toLowerCase();$('#dl').innerHTML=T.filter(t=>t.n.toLowerCase().includes(q)).map(t=>`<button data-id="${t.id}"><span style="width:20px;text-align:center">${t.i}</span><span>${t.n}</span></button>`).join('');$('#dl').querySelectorAll('button').forEach(b=>b.onclick=()=>launch(b.dataset.id))}
+function openDrawer(){$('#drawer').classList.add('open');$('#veil').classList.add('open')}
+function closeDrawer(){$('#drawer').classList.remove('open');$('#veil').classList.remove('open')}
+$('#menu').onclick=openDrawer;$('#dx').onclick=closeDrawer;$('#veil').onclick=closeDrawer;$('#dq').oninput=renderDrawer;
+
+const cv=$('#bg'),cx=cv.getContext('2d');let P=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight;P=Array.from({length:60},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.8,vy:(Math.random()-.5)*.8,r:Math.random()*2+1}))}
+function fr(){cx.clearRect(0,0,cv.width,cv.height);P.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>cv.width)p.vx*=-1;if(p.y<0||p.y>cv.height)p.vy*=-1;cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fillStyle='rgba(0,240,255,.4)';cx.fill();for(let j=i+1;j<P.length;j++){const q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<120){cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.strokeStyle=`rgba(168,85,247,${1-d/120})`;cx.lineWidth=.5;cx.stroke()}}});requestAnimationFrame(fr)}
+addEventListener('resize',rs);rs();fr();
+
+// ---- Visitors (shared through the artifact database) ----
+const V={total:0,log:[],shared:false};
+let DB=null;
+async function loadVisits(){
+  if(!DB)return;
+  try{
+    const snap=await DB.collection('visits').get();
+    V.total=snap.size;
+    V.log=snap.docs.map(d=>(d.data()||{}).t||0).sort((a,b)=>b-a).slice(0,8);
+    V.shared=true;
+  }catch(e){V.shared=false}
+  if($('#adm-modal').classList.contains('open'))renderAdmin();
+}
+async function countVisit(){
+  try{DB=await window.claude?.use?.('db')}catch(e){DB=null}
+  if(!DB)return;
+  try{await DB.collection('visits').add({t:Date.now()})}catch(e){}
+  loadVisits();
+}
+
+// ---- Admin & custom tools ----
+const ADMIN_PASS='Hassan123789';
+let adminOK=false;
+let custom=JSON.parse(localStorage.getItem('omni_custom')||'[]');
+const saveCustom=()=>localStorage.setItem('omni_custom',JSON.stringify(custom));
+function mkTool(x){return {...x,custom:true,r(b){b.innerHTML=`<div class=stack>${x.url?`<a class=btn href='${x.url}' target=_blank rel=noopener style='text-align:center;text-decoration:none'>Open link ↗</a>`:''}<div class=out></div></div>`;b.querySelector('.out').textContent=x.d}}}
+function reloadTools(){T=T.filter(t=>!t.custom);custom.forEach(x=>T.push(mkTool(x)));renderCats();renderGrid();renderDrawer();if($('#adm-modal').classList.contains('open'))renderAdmin()}
+function openAdmin(){$('#adm-modal').classList.add('open');renderAdmin();loadVisits()}
+function renderAdmin(){
+  const box=$('#adm-body');
+  if(!adminOK){
+    box.innerHTML=`<h2 style='margin:0 0 14px'>Admin login</h2><div class=stack><input id=pw type=password placeholder='Password'><button class=btn id=lg>Sign in</button><p id=er style='color:#ff6b9d;margin:0;font-size:12px'></p></div>`;
+    const go=()=>{if(box.querySelector('#pw').value===ADMIN_PASS){adminOK=true;renderAdmin()}else box.querySelector('#er').textContent='Wrong password'};
+    box.querySelector('#lg').onclick=go;box.querySelector('#pw').onkeydown=e=>{if(e.key==='Enter')go()};return;
+  }
+  box.innerHTML=`<h2 style='margin:0 0 14px'>Admin Dashboard</h2>
+  <div class=col style='margin-bottom:16px'><div class=gl style='padding:14px;text-align:center'><div class=acc style='font-size:26px;font-weight:900'>${V.total}</div><div class=sub>${V.shared?'Total visits':'Visits (database unavailable)'}</div></div><div class=gl style='padding:14px;text-align:center'><div class=acc style='font-size:26px;font-weight:900'>${T.length}</div><div class=sub>Total tools</div></div></div>
+  <p class=sub style='line-height:1.6;text-transform:none;letter-spacing:0'>Counts visits from people who are signed in to Claude and can open this page. Signed-out visitors cannot be counted.</p>
+  <h3>Add a tool</h3>
+  <div class=stack><input id=an placeholder='Tool name'><div class=row><input id=ai placeholder='Icon (emoji)' value='🛠️'><input id=ac placeholder='Category' value='Custom'></div><input id=ad placeholder='Short description'><input id=au placeholder='Link (optional, https://...)'><textarea id=ah rows=3 placeholder='How to use (shown when the tool opens)'></textarea><button class=btn id=add>Add tool</button></div>
+  <h3>Custom tools</h3>
+  ${custom.map((x,k)=>`<div class=row style='justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bd)'><span>${x.i} ${x.n}</span><button class=btn data-d='${k}'>Delete</button></div>`).join('')||'<p class=sub>No custom tools yet</p>'}
+  <h3>Recent visits</h3>
+  ${V.log.slice(0,8).map(t=>`<div class=sub style='padding:4px 0;text-transform:none;letter-spacing:0'>${new Date(t).toLocaleString()}</div>`).join('')}`;
+  box.querySelector('#add').onclick=()=>{const g=id=>box.querySelector('#'+id).value.trim();const n=g('an');if(!n)return toast('Enter a tool name');custom.push({id:'c'+Date.now(),n,i:g('ai')||'🛠️',c:g('ac')||'Custom',d:g('ad')||'Custom tool',url:g('au'),how:g('ah')||'Read the description and use the link above.'});saveCustom();reloadTools();toast('Tool added')};
+  box.querySelectorAll('[data-d]').forEach(x=>x.onclick=()=>{custom.splice(+x.dataset.d,1);saveCustom();reloadTools();toast('Tool deleted')});
+}
+$('#adm').onclick=openAdmin;
+$('#adm-x').onclick=()=>$('#adm-modal').classList.remove('open');
+$('#adm-modal').onclick=e=>{if(e.target.id==='adm-modal')$('#adm-modal').classList.remove('open')};
+reloadTools();
+renderCats();renderGrid();renderDrawer();
+countVisit();
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniTool Pro v3 Ultra - Cyberpunk Studio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 6.4.0 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Marked.js for Live Markdown Rendering -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <!-- QRCode.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            black: '#05050B',
-                            dark: '#0A0C16',
-                            card: 'rgba(13, 16, 32, 0.75)',
-                            border: 'rgba(255, 255, 255, 0.12)',
-                            accent: 'var(--accent-color, #00f0ff)',
-                            accentGlow: 'var(--accent-glow, rgba(0, 240, 255, 0.4))'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        :root {
-            --accent-color: #00f0ff;
-            --accent-glow: rgba(0, 240, 255, 0.35);
-            --secondary-glow: rgba(255, 0, 127, 0.35);
-        }
-
-        body {
-            background-color: #05050B;
-            color: #E2E8F0;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* 3D Background Canvas Layering */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Dynamic Fluid Aurora Blobs */
-        .aurora-blob {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.35;
-            z-index: 1;
-            pointer-events: none;
-            animation: blobFloat 20s infinite alternate ease-in-out;
-        }
-
-        .aurora-1 {
-            top: 5%;
-            left: 10%;
-            width: 450px;
-            height: 450px;
-            background: radial-gradient(circle, var(--accent-color), transparent 70%);
-            animation-duration: 18s;
-        }
-
-        .aurora-2 {
-            bottom: 5%;
-            right: 10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #a855f7, transparent 70%);
-            animation-duration: 22s;
-        }
-
-        .aurora-3 {
-            top: 45%;
-            left: 45%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #ff007f, transparent 70%);
-            animation-duration: 25s;
-        }
-
-        @keyframes blobFloat {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(50px, -70px) scale(1.1); }
-            66% { transform: translate(-40px, 60px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-
-        /* Premium Glassmorphism styling */
-        .glass-card {
-            background: rgba(10, 12, 24, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .glass-card-glow {
-            position: relative;
-        }
-        .glass-card-glow::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, var(--accent-glow), var(--secondary-glow));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .cyber-btn {
-            position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--accent-glow);
-            transition: all 0.25s ease;
-        }
-        .cyber-btn:hover {
-            background: var(--accent-glow);
-            box-shadow: 0 0 15px var(--accent-glow);
-            transform: translateY(-1px);
-        }
-
-        /* Dynamic Accent Utilities */
-        .accent-text { color: var(--accent-color); }
-        .accent-border { border-color: var(--accent-color); }
-        .accent-bg { background-color: var(--accent-color); }
-
-        /* Custom Scrollbars */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: rgba(5, 5, 11, 0.9); }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
-
-        .neon-pulse {
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-    </style>
-</head>
-<body class="relative flex flex-col justify-between z-10 selection:bg-cyan-500 selection:text-black min-h-screen">
-
-    <!-- Interactive Canvas & Animated Background Blobs -->
-    <canvas id="bg-canvas"></canvas>
-    <div class="aurora-blob aurora-1"></div>
-    <div class="aurora-blob aurora-2"></div>
-    <div class="aurora-blob aurora-3"></div>
-
-    <!-- Slide-Over Drawer Navigation (Opened by Top Left Hamburger) -->
-    <div id="drawer-overlay" onclick="toggleDrawer(false)" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
-    <aside id="side-drawer" class="fixed top-0 left-0 h-full w-80 lg:w-96 glass-card z-50 border-r border-white/10 p-5 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between">
-        <div>
-            <!-- Drawer Header -->
-            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-pink-500 p-[2px] flex items-center justify-center">
-                        <div class="w-full h-full bg-cyber-dark rounded-[10px] flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-cyan-400 text-sm"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 class="font-extrabold text-base text-white tracking-wider font-mono">ALL STUDIO TOOLS</h2>
-                        <p class="text-[10px] text-gray-400 uppercase tracking-widest">16+ Working Utilities</p>
-                    </div>
-                </div>
-                <button onclick="toggleDrawer(false)" class="text-gray-400 hover:text-white text-lg p-2 transition">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <!-- Drawer Search Bar -->
-            <div class="relative mb-4">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-xs"></i>
-                <input type="text" id="drawer-search" oninput="filterDrawerTools()" placeholder="Filter tools..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 font-mono">
-            </div>
-
-            <!-- Drawer Categorized List Container -->
-            <div id="drawer-tools-list" class="space-y-1.5 overflow-y-auto max-h-[calc(100vh-250px)] pr-1 font-mono text-xs"></div>
-        </div>
-
-        <!-- Drawer Footer Current Plan Status -->
-        <div class="pt-4 border-t border-white/10">
-            <div class="p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
-                <div>
-                    <span class="text-[10px] text-gray-400 font-mono block uppercase">Plan Status</span>
-                    <span id="drawer-plan-label" class="text-xs font-bold text-cyan-300">FREE PLAN (3/3)</span>
-                </div>
-                <button onclick="toggleDrawer(false); openProModal();" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white font-extrabold text-[10px] uppercase">
-                    Upgrade
-                </button>
-            </div>
-        </div>
-    </aside>
-
-    <!-- Main Navigation Header Bar -->
-    <header class="sticky top-0 z-40 glass-card border-b border-white/10 px-4 lg:px-8 py-3.5 flex items-center justify-between">
-        
-        <!-- Left Side: Hamburger 3-Lines Button & Brand -->
-        <div class="flex items-center space-x-4">
-            <button onclick="toggleDrawer(true)" class="p-2.5 rounded-xl glass-card border border-white/15 text-white hover:border-cyan-400 hover:text-cyan-300 transition flex items-center justify-center" title="Open All Tools Drawer">
-                <i class="fa-solid fa-bars text-lg"></i>
-            </button>
-
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="scrollToTop()">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 p-[2px] flex items-center justify-center neon-pulse">
-                    <div class="w-full h-full bg-cyber-dark rounded-[10px] flex items-center justify-center">
-                        <i class="fa-solid fa-atom text-cyan-400 text-xl animate-spin" style="animation-duration: 12s;"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex items-center space-x-2">
-                        <h1 class="font-black text-xl tracking-wider text-white font-mono">OMNITOOL <span class="accent-text">PRO</span></h1>
-                        <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 uppercase tracking-widest">v3 ULTRA</span>
-                    </div>
-                    <p class="text-[10px] text-gray-400 tracking-widest uppercase hidden sm:block">3D Cyber Studio & Developer Toolkit</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Side: Theme Accent, Status Badge & Pro Upgrade -->
-        <div class="flex items-center space-x-3">
-
-            <!-- Theme Accent Palette Dropdown -->
-            <div class="relative group">
-                <button class="p-2 rounded-xl glass-card text-gray-300 hover:text-white border border-white/10 text-xs flex items-center gap-2">
-                    <i class="fa-solid fa-palette accent-text"></i>
-                    <span class="hidden md:inline font-mono text-[11px]">Accent Theme</span>
-                </button>
-                <div class="absolute right-0 mt-2 w-48 glass-card border border-white/10 rounded-2xl p-2 hidden group-hover:block z-50 shadow-2xl">
-                    <div class="text-[10px] font-mono text-gray-400 px-2 py-1 uppercase">Select Theme Color</div>
-                    <div class="grid grid-cols-3 gap-2 p-1">
-                        <button onclick="setThemeAccent('#00f0ff', 'rgba(0, 240, 255, 0.4)')" class="h-8 rounded-lg bg-cyan-400 border border-white/20 hover:scale-105 transition" title="Electric Cyan"></button>
-                        <button onclick="setThemeAccent('#a855f7', 'rgba(168, 85, 247, 0.4)')" class="h-8 rounded-lg bg-purple-500 border border-white/20 hover:scale-105 transition" title="Neon Purple"></button>
-                        <button onclick="setThemeAccent('#10b981', 'rgba(16, 185, 129, 0.4)')" class="h-8 rounded-lg bg-emerald-500 border border-white/20 hover:scale-105 transition" title="Emerald Green"></button>
-                        <button onclick="setThemeAccent('#f59e0b', 'rgba(245, 158, 11, 0.4)')" class="h-8 rounded-lg bg-amber-500 border border-white/20 hover:scale-105 transition" title="Sunset Gold"></button>
-                        <button onclick="setThemeAccent('#ef4444', 'rgba(239, 68, 68, 0.4)')" class="h-8 rounded-lg bg-red-500 border border-white/20 hover:scale-105 transition" title="Flame Red"></button>
-                        <button onclick="setThemeAccent('#ff007f', 'rgba(255, 0, 127, 0.4)')" class="h-8 rounded-lg bg-pink-500 border border-white/20 hover:scale-105 transition" title="Cyber Magenta"></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Free Session Credit Display Badge -->
-            <div id="credit-status-badge" class="flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-cyan-500/30 text-xs font-mono">
-                <i class="fa-solid fa-bolt text-yellow-400" id="badge-icon"></i>
-                <span id="badge-text" class="text-cyan-300 font-bold">Credits: 3/3</span>
-            </div>
-
-            <!-- Header Pro Upgrade Button -->
-            <button onclick="openProModal()" class="relative group overflow-hidden rounded-xl p-[1px] font-bold text-xs transition duration-300">
-                <span class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-xl group-hover:opacity-100 opacity-80 transition-opacity"></span>
-                <div class="relative px-3.5 py-2 rounded-[11px] bg-cyber-dark flex items-center space-x-2 transition group-hover:bg-transparent">
-                    <i class="fa-solid fa-crown text-yellow-400 animate-bounce"></i>
-                    <span class="text-white font-extrabold tracking-wider hidden sm:inline">UPGRADE PRO</span>
-                </div>
-            </button>
-        </div>
-    </header>
-
-    <!-- Top Promotional Banner Hero Area -->
-    <div class="max-w-[1920px] w-full mx-auto px-4 lg:px-8 pt-6 z-10">
-        <div class="glass-card glass-card-glow rounded-3xl p-6 lg:p-8 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6 relative overflow-hidden">
-            <div class="space-y-2 text-center lg:text-left z-10">
-                <div class="inline-flex items-center px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-mono border border-cyan-500/30">
-                    <i class="fa-solid fa-sparkles mr-2 text-yellow-400"></i> NEXT-GEN CYBER TOOLKIT STUDIO
-                </div>
-                <h2 class="text-2xl lg:text-4xl font-black text-white tracking-tight">16+ AI, Developer & Design Utilities</h2>
-                <p class="text-xs lg:text-sm text-gray-300 max-w-2xl">Access all instant tools directly below. Free users receive <span class="text-yellow-400 font-bold">3 free tool executions</span>. Upgrade to Pro ($5/mo) for unlimited access.</p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row items-center gap-3 z-10">
-                <div class="text-center lg:text-right font-mono">
-                    <span class="block text-[10px] text-gray-400 uppercase">Current Plan</span>
-                    <span id="hero-plan-text" class="text-xs font-extrabold text-cyan-300">FREE PLAN (3 Credits Left)</span>
-                </div>
-                <button onclick="openProModal()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-black text-xs uppercase tracking-wider shadow-xl hover:brightness-110 transition flex items-center gap-2">
-                    <i class="fa-solid fa-crown text-yellow-400"></i>
-                    <span>Get Pro Unlimited ($5)</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Workspace Area: Tools Grid & Active Tool Modal/Workspace -->
-    <main class="max-w-[1920px] w-full mx-auto px-4 lg:px-8 py-6 z-10 space-y-8 flex-1">
-        
-        <!-- Search & Category Filter Section -->
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 glass-card p-4 rounded-2xl border border-white/10 font-mono">
-            <div class="relative w-full md:w-96">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-400 text-xs"></i>
-                <input type="text" id="grid-search" oninput="filterGridTools()" placeholder="Search tools (e.g. JSON, Regex, QR)..." class="w-full bg-black/60 border border-white/10 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400">
-            </div>
-
-            <div id="category-filters" class="flex flex-wrap gap-2 text-xs">
-                <!-- Dynamically injected category buttons -->
-            </div>
-        </div>
-
-        <!-- Main Responsive Tools Grid (All 16+ tools visible immediately) -->
-        <section id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            <!-- Dynamically populated tool cards -->
-        </section>
-
-        <!-- Active Tool Interactive Launch Workspace Container -->
-        <section id="active-workspace-section" class="glass-card glass-card-glow rounded-3xl p-6 border border-white/10 hidden">
-            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
-                <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl accent-text">
-                        <i id="active-tool-icon" class="fa-solid fa-wand-magic-sparkles"></i>
-                    </div>
-                    <div>
-                        <h3 id="active-tool-title" class="text-xl font-black text-white">Tool Workspace</h3>
-                        <p id="active-tool-desc" class="text-xs text-gray-400">Interactive live studio editor</p>
-                    </div>
-                </div>
-                <button onclick="closeActiveWorkspace()" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 text-xs font-mono transition flex items-center gap-2">
-                    <i class="fa-solid fa-xmark"></i> Close Tool
-                </button>
-            </div>
-
-            <div id="active-tool-content" class="min-h-[400px]">
-                <!-- Active tool workspace content injected here -->
-            </div>
-        </section>
-
-        <!-- Dedicated Scrollable Bottom Pro Subscription Section -->
-        <section class="glass-card glass-card-glow rounded-3xl p-6 lg:p-8 border border-pink-500/30 my-8 font-mono">
-            <div class="text-center max-w-2xl mx-auto mb-8">
-                <div class="inline-flex items-center px-3.5 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs mb-3 border border-pink-500/30">
-                    <i class="fa-solid fa-crown mr-2 text-yellow-400"></i> PRO SUBSCRIPTION $5 / MONTH
-                </div>
-                <h3 class="text-2xl lg:text-3xl font-black text-white">Upgrade to Unlimited Studio Access</h3>
-                <p class="text-xs text-gray-300 mt-2">Get lifetime unlimited executions across all 16+ developer tools without session limits.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
-                <!-- Touch 'n Go eWallet Malaysia Display Box -->
-                <div class="bg-gradient-to-b from-blue-950/60 via-cyber-dark to-pink-950/50 rounded-2xl p-5 border border-pink-500/30 flex flex-col items-center text-center">
-                    <div class="bg-white text-blue-900 font-black text-xs px-3 py-1 rounded-md mb-2 shadow">
-                        Touch 'n Go eWallet
-                    </div>
-                    <h4 class="text-lg font-bold text-white tracking-wide">SHER HASSAN</h4>
-                    <p class="text-[11px] text-gray-300 mb-3">Scan with Touch 'n Go or Malaysian Banking App ($5 / RM22)</p>
-
-                    <!-- Pink Touch 'n Go QR Display Container -->
-                    <div class="bg-white p-4 rounded-2xl border-4 border-pink-600 shadow-2xl flex flex-col items-center max-w-[220px] w-full">
-                        <div id="tng-bottom-qr" class="my-1 p-2 bg-white rounded-lg flex justify-center"></div>
-                        <div class="w-full bg-pink-600 text-white text-center text-[10px] font-extrabold py-1 rounded-md mt-2 uppercase tracking-wider">
-                            MALAYSIA NATIONAL QR
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Direct Contact Details & Activation Box -->
-                <div class="space-y-4">
-                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
-                        <h5 class="text-xs font-bold text-cyan-300 uppercase">Direct Payment & Inquiries</h5>
-                        <a href="https://wa.me/923175047568?text=Hello!%20I%20want%20to%20subscribe%20to%20OmniTool%20Pro%20($5)." target="_blank" class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 flex items-center space-x-3 hover:bg-emerald-500/20 transition">
-                            <i class="fa-brands fa-whatsapp text-emerald-400 text-xl"></i>
-                            <div>
-                                <span class="block text-[10px] text-gray-400">WhatsApp Contact</span>
-                                <span class="text-xs font-bold">+92 317 5047568</span>
-                            </div>
-                        </a>
-                        <a href="mailto:hussain.tanveer655@gmail.com?subject=OmniTool%20Pro%20Subscription" class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 flex items-center space-x-3 hover:bg-cyan-500/20 transition">
-                            <i class="fa-solid fa-envelope text-cyan-400 text-xl"></i>
-                            <div>
-                                <span class="block text-[10px] text-gray-400">Email Address</span>
-                                <span class="text-xs font-bold">hussain.tanveer655@gmail.com</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <button onclick="openProModal()" class="w-full py-4 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-crown text-yellow-400"></i>
-                        <span>Enter Transaction ID / Verify Receipt</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- PRO SUBSCRIPTION MODAL -->
-    <div id="pro-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
-        <div class="relative w-full max-w-xl glass-card glass-card-glow rounded-3xl p-6 lg:p-8 border border-pink-500/40 max-h-[92vh] overflow-y-auto font-mono">
-            <button onclick="closeProModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-xl p-2 transition">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <div class="inline-flex items-center px-3.5 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs mb-2 border border-pink-500/30">
-                    <i class="fa-solid fa-crown mr-2 text-yellow-400"></i> PRO UNLIMITED ACTIVATION
-                </div>
-                <h3 class="text-2xl font-black text-white">Upgrade to OmniTool Pro ($5)</h3>
-            </div>
-
-            <form onsubmit="verifyAndActivatePro(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs text-cyan-300 mb-1">Enter Transaction Reference / Payment Ref ID</label>
-                    <input type="text" id="tx-id-input" required placeholder="e.g. TNG-891230129 or Bank Ref" class="w-full bg-black/70 border border-white/20 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-cyan-400 font-mono">
-                </div>
-                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition">
-                    Activate Pro Unlimited Access
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Notification Toast Container -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
-
-    <!-- Main Application Scripts -->
-    <script>
-        /* State & LocalStorage Management */
-        const FREE_CREDIT_LIMIT = 3;
-        let userState = {
-            isPro: false,
-            creditsUsed: 0,
-            favorites: []
-        };
-
-        function loadUserState() {
-            const saved = localStorage.getItem('omnitool_studio_v3_state');
-            if (saved) {
-                userState = JSON.parse(saved);
-            } else {
-                saveUserState();
-            }
-            updateCreditBadge();
-        }
-
-        function saveUserState() {
-            localStorage.setItem('omnitool_studio_v3_state', JSON.stringify(userState));
-        }
-
-        function consumeCredit() {
-            if (userState.isPro) return true;
-
-            if (userState.creditsUsed >= FREE_CREDIT_LIMIT) {
-                openProModal();
-                showToast("Free credits exhausted! Please upgrade to Pro ($5) for unlimited tool usage.", "warning");
-                return false;
-            }
-
-            userState.creditsUsed++;
-            saveUserState();
-            updateCreditBadge();
-
-            if (userState.creditsUsed >= FREE_CREDIT_LIMIT) {
-                showToast("You have used your last free credit. Upgrade to Pro for unlimited access!", "warning");
-            }
-            return true;
-        }
-
-        function updateCreditBadge() {
-            const badgeText = document.getElementById('badge-text');
-            const badgeIcon = document.getElementById('badge-icon');
-            const badgeContainer = document.getElementById('credit-status-badge');
-            const drawerLabel = document.getElementById('drawer-plan-label');
-            const heroPlanText = document.getElementById('hero-plan-text');
-
-            if (userState.isPro) {
-                badgeText.innerText = "PRO UNLIMITED";
-                badgeText.className = "text-yellow-400 font-extrabold font-mono tracking-wider";
-                badgeIcon.className = "fa-solid fa-crown text-yellow-400";
-                badgeContainer.className = "flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-yellow-500/50 bg-yellow-500/10";
-                drawerLabel.innerText = "PRO UNLIMITED ACTIVE";
-                drawerLabel.className = "text-xs font-bold text-yellow-400";
-                heroPlanText.innerText = "PRO UNLIMITED ACTIVE";
-                heroPlanText.className = "text-xs font-extrabold text-yellow-400";
-            } else {
-                const remaining = FREE_CREDIT_LIMIT - userState.creditsUsed;
-                badgeText.innerText = `Credits: ${remaining}/${FREE_CREDIT_LIMIT}`;
-                badgeText.className = remaining > 0 ? "text-cyan-300 font-mono font-bold" : "text-pink-400 font-mono font-bold";
-                badgeIcon.className = remaining > 0 ? "fa-solid fa-bolt text-yellow-400" : "fa-solid fa-lock text-pink-500";
-                badgeContainer.className = remaining > 0 
-                    ? "flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-cyan-500/30 text-xs font-medium"
-                    : "flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border border-pink-500/50 bg-pink-500/10 text-xs font-medium animate-pulse";
-                drawerLabel.innerText = `FREE PLAN (${remaining}/${FREE_CREDIT_LIMIT} Left)`;
-                heroPlanText.innerText = `FREE PLAN (${remaining} Credits Left)`;
-            }
-        }
-
-        /* 16 WORKING STUDIO TOOLS LIST */
-        const studioTools = [
-            { id: "json-studio", name: "JSON Formatter & Validator", icon: "fa-code", category: "Developer", desc: "Format, validate, prettify, and minify JSON data payloads." },
-            { id: "glass-builder", name: "Glassmorphism CSS Builder", icon: "fa-sliders", category: "Design", desc: "Design sleek backdrop blur frosted glass elements live." },
-            { id: "gradient-palette", name: "Advanced Gradient Generator", icon: "fa-palette", category: "Design", desc: "Craft multi-stop linear gradient backgrounds and CSS code." },
-            { id: "regex-tester", name: "Regex Debugger & Tester", icon: "fa-bug", category: "Developer", desc: "Test regular expression patterns against target texts." },
-            { id: "pass-hash", name: "Password & Hash Generator", icon: "fa-key", category: "Security", desc: "Generate strong passwords and secure hashes." },
-            { id: "qr-studio", name: "QR Code Generator Studio", icon: "fa-qrcode", category: "Utilities", desc: "Generate customizable downloadable QR codes." },
-            { id: "markdown-editor", name: "Markdown Live Previewer", icon: "fa-file-lines", category: "Utilities", desc: "Write and view real-time side-by-side rendered Markdown." },
-            { id: "loan-calc", name: "Financial Loan EMI Calculator", icon: "fa-calculator", category: "Finance", desc: "Calculate monthly EMIs, total interest, and loan schedules." },
-            { id: "color-picker", name: "Color Palette & HEX Studio", icon: "fa-eye-dropper", category: "Design", desc: "Extract and generate complementary studio color schemes." },
-            { id: "text-utility", name: "Text Diff & Transform Tool", icon: "fa-font", category: "Utilities", desc: "Word counter, case changer, and Base64 encoder." },
-            { id: "image-resizer", name: "Image Dimension Resizer", icon: "fa-image", category: "Media", desc: "Scale and compute proportional image aspect ratios." },
-            { id: "code-minifier", name: "Code Minifier & Beautifier", icon: "fa-file-code", category: "Developer", desc: "Compress and minify HTML, CSS, and JS web codes." },
-            { id: "unit-converter", name: "Unit & Data Converter", icon: "fa-arrow-right-arrow-left", category: "Utilities", desc: "Convert digital storage units, speed, and length." },
-            { id: "epoch-time", name: "Timestamp & Epoch Utility", icon: "fa-clock", category: "Utilities", desc: "Convert Unix timestamps into readable ISO dates." },
-            { id: "meta-generator", name: "Meta Tags & SEO Generator", icon: "fa-search", category: "Developer", desc: "Build HTML meta tags for Google SEO and Social Sharing." },
-            { id: "uuid-generator", name: "UUID & Random Generator", icon: "fa-shuffle", category: "Developer", desc: "Generate v4 UUIDs, random strings, and GUID keys." }
-        ];
-
-        let selectedCategory = "All";
-
-        function renderCategoryFilters() {
-            const container = document.getElementById('category-filters');
-            const categories = ["All", ...new Set(studioTools.map(t => t.category))];
-            
-            container.innerHTML = categories.map(cat => `
-                <button onclick="filterCategory('${cat}')" class="px-3 py-1.5 rounded-xl border transition ${
-                    selectedCategory === cat 
-                    ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold' 
-                    : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'
-                }">${cat}</button>
-            `).join('');
-        }
-
-        function filterCategory(cat) {
-            selectedCategory = cat;
-            renderCategoryFilters();
-            filterGridTools();
-        }
-
-        function renderToolsGrid(toolsToRender = studioTools) {
-            const grid = document.getElementById('tools-grid');
-            grid.innerHTML = toolsToRender.map(tool => `
-                <div class="glass-card glass-card-glow rounded-2xl p-5 border border-white/10 flex flex-col justify-between hover:border-cyan-500/50 hover:translate-y-[-2px] transition duration-300 font-mono">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-lg accent-text">
-                                <i class="fa-solid ${tool.icon}"></i>
-                            </div>
-                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-400 border border-white/10">${tool.category}</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-sm">${tool.name}</h4>
-                            <p class="text-[11px] text-gray-400 mt-1 line-clamp-2">${tool.desc}</p>
-                        </div>
-                    </div>
-                    <button onclick="launchToolWorkspace('${tool.id}')" class="mt-4 w-full py-2.5 rounded-xl bg-white/5 hover:bg-cyan-500/20 border border-white/10 hover:border-cyan-500/40 text-cyan-300 text-xs font-bold transition flex items-center justify-center gap-2">
-                        <span>Launch Tool</span>
-                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                    </button>
-                </div>
-            `).join('');
-        }
-
-        function filterGridTools() {
-            const query = document.getElementById('grid-search').value.toLowerCase();
-            const filtered = studioTools.filter(t => {
-                const matchesCat = selectedCategory === "All" || t.category === selectedCategory;
-                const matchesSearch = t.name.toLowerCase().includes(query) || t.desc.toLowerCase().includes(query);
-                return matchesCat && matchesSearch;
-            });
-            renderToolsGrid(filtered);
-        }
-
-        /* Drawer Slide-Over Navigation Logic */
-        function toggleDrawer(open) {
-            const drawer = document.getElementById('side-drawer');
-            const overlay = document.getElementById('drawer-overlay');
-
-            if (open) {
-                overlay.classList.remove('hidden');
-                setTimeout(() => {
-                    overlay.classList.remove('opacity-0');
-                    drawer.classList.remove('-translate-x-full');
-                }, 10);
-            } else {
-                drawer.classList.add('-translate-x-full');
-                overlay.classList.add('opacity-0');
-                setTimeout(() => overlay.classList.add('hidden'), 300);
-            }
-        }
-
-        function renderDrawerToolsList(query = "") {
-            const container = document.getElementById('drawer-tools-list');
-            const filtered = studioTools.filter(t => t.name.toLowerCase().includes(query.toLowerCase()));
-
-            container.innerHTML = filtered.map(tool => `
-                <button onclick="toggleDrawer(false); launchToolWorkspace('${tool.id}');" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/5 text-gray-300 hover:text-white transition text-left">
-                    <div class="flex items-center space-x-3">
-                        <i class="fa-solid ${tool.icon} w-4 text-center accent-text"></i>
-                        <span class="truncate">${tool.name}</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-500"></i>
-                </button>
-            `).join('');
-        }
-
-        function filterDrawerTools() {
-            const q = document.getElementById('drawer-search').value;
-            renderDrawerToolsList(q);
-        }
-
-        /* Active Tool Workspace Launch */
-        function launchToolWorkspace(id) {
-            const tool = studioTools.find(t => t.id === id);
-            if (!tool) return;
-
-            document.getElementById('active-tool-title').innerText = tool.name;
-            document.getElementById('active-tool-icon').className = `fa-solid ${tool.icon} accent-text`;
-            document.getElementById('active-tool-desc').innerText = tool.desc;
-
-            const workspaceSection = document.getElementById('active-workspace-section');
-            workspaceSection.classList.remove('hidden');
-            renderToolContent(id);
-
-            workspaceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function closeActiveWorkspace() {
-            document.getElementById('active-workspace-section').classList.add('hidden');
-        }
-
-        function renderToolContent(id) {
-            const container = document.getElementById('active-tool-content');
-
-            switch(id) {
-                case "json-studio":
-                    container.innerHTML = `
-                        <div class="space-y-4 font-mono">
-                            <div>
-                                <label class="block text-xs text-cyan-300 mb-1">INPUT JSON</label>
-                                <textarea id="json-input" rows="6" class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-xs text-white focus:outline-none focus:border-cyan-400" placeholder='{"key": "value"}'></textarea>
-                            </div>
-                            <div class="flex space-x-3">
-                                <button onclick="processJSON(true)" class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs">Prettify</button>
-                                <button onclick="processJSON(false)" class="px-4 py-2 bg-purple-500/20 border border-purple-500/40 text-purple-300 rounded-xl text-xs">Minify</button>
-                            </div>
-                            <textarea id="json-output" readonly rows="6" class="w-full bg-black/80 border border-white/10 rounded-xl p-3 text-xs text-emerald-400"></textarea>
-                        </div>
-                    `;
-                    break;
-
-                case "glass-builder":
-                    container.innerHTML = `
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 font-mono">
-                            <div class="space-y-4">
-                                <div><label class="block text-xs text-gray-300">Blur: <span id="blur-val">20</span>px</label><input type="range" id="glass-blur" min="0" max="50" value="20" oninput="updateGlass()" class="w-full accent-cyan-400"></div>
-                                <div><label class="block text-xs text-gray-300">Opacity: <span id="opac-val">0.25</span></label><input type="range" id="glass-opac" min="0" max="1" step="0.05" value="0.25" oninput="updateGlass()" class="w-full accent-cyan-400"></div>
-                            </div>
-                            <div class="flex flex-col items-center justify-center space-y-3">
-                                <div id="glass-preview" class="w-full h-36 border border-white/20 flex items-center justify-center text-xs text-white">Glassmorphism Preview</div>
-                                <button onclick="copyGlassCSS()" class="px-4 py-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs">Copy CSS Snippet</button>
-                            </div>
-                        </div>
-                    `;
-                    updateGlass();
-                    break;
-
-                case "gradient-palette":
-                    container.innerHTML = `
-                        <div class="space-y-4 font-mono">
-                            <div class="flex space-x-4">
-                                <input type="color" id="grad-c1" value="#00f0ff" onchange="updateGradient()" class="w-12 h-10 bg-transparent cursor-pointer">
-                                <input type="color" id="grad-c2" value="#ff007f" onchange="updateGradient()" class="w-12 h-10 bg-transparent cursor-pointer">
-                            </div>
-                            <div id="grad-preview" class="w-full h-32 rounded-xl border border-white/10"></div>
-                            <textarea id="grad-code" readonly class="w-full bg-black/80 border border-white/10 rounded-xl p-3 text-xs text-cyan-300"></textarea>
-                        </div>
-                    `;
-                    updateGradient();
-                    break;
-
-                case "qr-studio":
-                    container.innerHTML = `
-                        <div class="space-y-4 font-mono">
-                            <input type="text" id="qr-input" placeholder="Enter URL or text..." class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-xs text-white">
-                            <button onclick="generateQR()" class="px-5 py-2 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 rounded-xl text-xs">Generate QR</button>
-                            <div id="custom-qr-box" class="flex justify-center p-4 bg-white rounded-2xl max-w-[200px] mx-auto hidden"></div>
-                        </div>
-                    `;
-                    break;
-
-                case "uuid-generator":
-                    container.innerHTML = `
-                        <div class="space-y-4 font-mono">
-                            <button onclick="generateUUID()" class="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-purple-500 text-black font-extrabold rounded-xl text-xs uppercase">Generate v4 UUID</button>
-                            <input type="text" id="uuid-out" readonly class="w-full bg-black/80 border border-white/10 rounded-xl p-3 text-xs text-cyan-300">
-                        </div>
-                    `;
-                    break;
-
-                default:
-                    container.innerHTML = `<p class="font-mono text-xs text-cyan-300">Tool execution loaded successfully. Enter inputs and run execution.</p>`;
-                    break;
-            }
-        }
-
-        /* Tool Logic Implementations */
-        function processJSON(prettify) {
-            if (!consumeCredit()) return;
-            const input = document.getElementById('json-input').value;
-            const out = document.getElementById('json-output');
-            try {
-                const parsed = JSON.parse(input);
-                out.value = prettify ? JSON.stringify(parsed, null, 2) : JSON.stringify(parsed);
-            } catch(e) { out.value = "JSON Error: " + e.message; }
-        }
-
-        function updateGlass() {
-            const blur = document.getElementById('glass-blur').value;
-            const opac = document.getElementById('glass-opac').value;
-            document.getElementById('blur-val').innerText = blur;
-            document.getElementById('opac-val').innerText = opac;
-            const preview = document.getElementById('glass-preview');
-            preview.style.backdropFilter = `blur(${blur}px)`;
-            preview.style.backgroundColor = `rgba(255, 255, 255, ${opac})`;
-        }
-
-        function copyGlassCSS() {
-            if (!consumeCredit()) return;
-            showToast("Glassmorphism CSS Copied!", "success");
-        }
-
-        function updateGradient() {
-            const c1 = document.getElementById('grad-c1').value;
-            const c2 = document.getElementById('grad-c2').value;
-            const preview = document.getElementById('grad-preview');
-            const code = document.getElementById('grad-code');
-            const str = `linear-gradient(135deg, ${c1}, ${c2})`;
-            preview.style.background = str;
-            code.value = `background: ${str};`;
-        }
-
-        function generateQR() {
-            if (!consumeCredit()) return;
-            const val = document.getElementById('qr-input').value.trim();
-            const box = document.getElementById('custom-qr-box');
-            if(!val) return;
-            box.classList.remove('hidden');
-            box.innerHTML = '';
-            new QRCode(box, { text: val, width: 140, height: 140 });
-        }
-
-        function generateUUID() {
-            if (!consumeCredit()) return;
-            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-            document.getElementById('uuid-out').value = uuid;
-        }
-
-        /* Pro Modal Handlers */
-        function openProModal() {
-            const modal = document.getElementById('pro-modal');
-            modal.classList.remove('hidden');
-            setTimeout(() => modal.classList.remove('opacity-0'), 10);
-        }
-
-        function closeProModal() {
-            const modal = document.getElementById('pro-modal');
-            modal.classList.add('opacity-0');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
-
-        function verifyAndActivatePro(e) {
-            e.preventDefault();
-            userState.isPro = true;
-            saveUserState();
-            updateCreditBadge();
-            closeProModal();
-            showToast("Transaction Verified! Pro Unlimited Status Activated.", "success");
-        }
-
-        function renderTnGQRCode() {
-            const container = document.getElementById('tng-bottom-qr');
-            if(!container) return;
-            container.innerHTML = '';
-            new QRCode(container, {
-                text: "https://pay.touchngo.com.my/qrcodes/SHER_HASSAN_MALAYSIA_NATIONAL_QR_OMNITOOL",
-                width: 140,
-                height: 140,
-                colorDark: "#e6005c",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        }
-
-        function setThemeAccent(colorHex, glowRgba) {
-            document.documentElement.style.setProperty('--accent-color', colorHex);
-            document.documentElement.style.setProperty('--accent-glow', glowRgba);
-            showToast("Accent theme updated!", "info");
-        }
-
-        function showToast(msg, type = "info") {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            let borderCol = type === "warning" ? "border-yellow-500" : type === "success" ? "border-emerald-500" : "border-cyan-500";
-            
-            toast.className = `pointer-events-auto flex items-center space-x-3 glass-card border-l-4 ${borderCol} px-4 py-3 rounded-xl text-xs text-white shadow-2xl font-mono`;
-            toast.innerHTML = `<span>${msg}</span>`;
-            
-            container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3500);
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        /* 3D Particle Canvas Background */
-        function init3DConstellationMesh() {
-            const canvas = document.getElementById('bg-canvas');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-
-            function resize() {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resize);
-            resize();
-
-            const particles = Array.from({ length: 60 }, () => ({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.8,
-                vy: (Math.random() - 0.5) * 0.8,
-                radius: Math.random() * 2 + 1
-            }));
-
-            function animate() {
-                ctx.clearRect(0, 0, width, height);
-                particles.forEach((p, i) => {
-                    p.x += p.vx; p.y += p.vy;
-                    if (p.x < 0 || p.x > width) p.vx *= -1;
-                    if (p.y < 0 || p.y > height) p.vy *= -1;
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
-                    ctx.fill();
-
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const p2 = particles[j];
-                        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                        if (dist < 120) {
-                            ctx.beginPath();
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.strokeStyle = `rgba(168, 85, 247, ${1 - dist / 120})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                });
-                requestAnimationFrame(animate);
-            }
-            animate();
-        }
-
-        window.onload = function() {
-            loadUserState();
-            renderCategoryFilters();
-            renderToolsGrid();
-            renderDrawerToolsList();
-            renderTnGQRCode();
-            init3DConstellationMesh();
-        };
-    </script>
-</body>
-</html>
+</body></html>
